@@ -1,0 +1,20 @@
+PODS:
+  - ZQFoundation (0.1.0):
+    - ZQFoundation/ZQShareCode (= 0.1.0)
+  - ZQFoundation/ZQShareCode (0.1.0):
+    - ZQFoundation/ZQShareCode/Category (= 0.1.0)
+  - ZQFoundation/ZQShareCode/Category (0.1.0)
+
+DEPENDENCIES:
+  - ZQFoundation (from `../`)
+
+EXTERNAL SOURCES:
+  ZQFoundation:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  ZQFoundation: 07fb4522b64cf88b0dd1f34f2cd35820bfe7a5e1
+
+PODFILE CHECKSUM: b59e4601bbfd614960359c92a27cb28c9c2f0e6a
+
+COCOAPODS: 1.5.3

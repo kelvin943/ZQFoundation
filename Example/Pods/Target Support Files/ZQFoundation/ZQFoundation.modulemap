@@ -1,0 +1,6 @@
+framework module ZQFoundation {
+  umbrella header "ZQFoundation-umbrella.h"
+
+  export *
+  module * { export * }
+}

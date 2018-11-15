@@ -1,0 +1,6 @@
+framework module Pods_ZQFoundation_Example {
+  umbrella header "Pods-ZQFoundation_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

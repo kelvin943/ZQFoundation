@@ -1,0 +1,34 @@
+{
+  "name": "ZQFoundation",
+  "version": "0.1.0",
+  "summary": "basic or common components.",
+  "description": "zq common  module description",
+  "homepage": "https://github.com/macro/ZQFoundation",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Macro Zhang": "quan943@163.com"
+  },
+  "source": {
+    "git": "https://github.com/macro/ZQFoundation.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "subspecs": [
+    {
+      "name": "ZQShareCode",
+      "source_files": "ZQShareCode/ZQShareCode.h",
+      "subspecs": [
+        {
+          "name": "Category",
+          "source_files": "ZQShareCode/Category/**/*.{h,m,c}"
+        }
+      ]
+    }
+  ]
+}
