@@ -1,7 +1,12 @@
+#source 'git@gitee.com:Kelvin943/ZQFoundation.git'
+
 use_frameworks!
 
+
 target 'ZQFoundation_Example' do
-  pod 'ZQFoundation', :path => '../'
+#  pod 'ZQFoundation', :path => '../'
+pod 'ZQFoundation', :git =>'https://github.com/kelvin943/ZQFoundation.git', :tag =>'0.1.0'
+
 
   target 'ZQFoundation_Tests' do
     inherit! :search_paths
@@ -9,3 +14,4 @@ target 'ZQFoundation_Example' do
     
   end
 end
+

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "summary": "basic or common components.",
   "description": "zq common  module description",
-  "homepage": "https://github.com/macro/ZQFoundation",
+  "homepage": "https://github.com/kelvin943/ZQFoundation",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,7 +12,7 @@
     "Macro Zhang": "quan943@163.com"
   },
   "source": {
-    "git": "https://github.com/macro/ZQFoundation.git",
+    "git": "git@github.com:kelvin943/ZQFoundation.git",
     "tag": "0.1.0"
   },
   "platforms": {
