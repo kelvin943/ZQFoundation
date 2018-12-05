@@ -6,21 +6,15 @@ PODS:
   - ZQFoundation/ZQShareCode/Category (0.1.0)
 
 DEPENDENCIES:
-  - ZQFoundation (from `https://github.com/kelvin943/ZQFoundation.git`, tag `0.1.0`)
+  - ZQFoundation (from `../`)
 
 EXTERNAL SOURCES:
   ZQFoundation:
-    :git: https://github.com/kelvin943/ZQFoundation.git
-    :tag: 0.1.0
-
-CHECKOUT OPTIONS:
-  ZQFoundation:
-    :git: https://github.com/kelvin943/ZQFoundation.git
-    :tag: 0.1.0
+    :path: "../"
 
 SPEC CHECKSUMS:
-  ZQFoundation: acd7f79257133ec375536b8f6c201dce8842fccb
+  ZQFoundation: 720a9fadf3ab7519151bc38ae634565c9c78c47f
 
-PODFILE CHECKSUM: 8da30618d3328f69be7884f46b9235440b06b74b
+PODFILE CHECKSUM: 47202ae857645100094ac00bf96359ba450b450e
 
 COCOAPODS: 1.5.3
