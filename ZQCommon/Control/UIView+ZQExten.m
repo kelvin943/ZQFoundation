@@ -7,7 +7,6 @@
 //
 
 #import "UIView+ZQExten.h"
-#import "ZQMacros.h"
 #import <objc/runtime.h>
 
 #pragma mark - View 布局
@@ -115,11 +114,12 @@
 @implementation UIView (LayoutSubviewsFinish)
 
 + (void)load {
-    GCDOnceBlock(^{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
         Method originalMethod = class_getInstanceMethod(self, @selector(layoutSubviews));
         Method newMethod = class_getInstanceMethod(self, @selector(_zq_layoutSubviews));
         method_exchangeImplementations(originalMethod, newMethod);
-    })
+    });
 }
 - (void)_zq_layoutSubviews {
     [self _zq_layoutSubviews];

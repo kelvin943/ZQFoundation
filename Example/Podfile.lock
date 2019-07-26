@@ -1,15 +1,15 @@
 PODS:
-  - ZQFoundation (0.1.0):
-    - ZQFoundation/ZQCommon (= 0.1.0)
-  - ZQFoundation/ZQCommon (0.1.0):
-    - ZQFoundation/ZQCommon/Category (= 0.1.0)
-    - ZQFoundation/ZQCommon/Control (= 0.1.0)
-    - ZQFoundation/ZQCommon/Macro (= 0.1.0)
-    - ZQFoundation/ZQCommon/NavBar (= 0.1.0)
-  - ZQFoundation/ZQCommon/Category (0.1.0)
-  - ZQFoundation/ZQCommon/Control (0.1.0)
-  - ZQFoundation/ZQCommon/Macro (0.1.0)
-  - ZQFoundation/ZQCommon/NavBar (0.1.0)
+  - ZQFoundation (0.1.1):
+    - ZQFoundation/ZQCommon (= 0.1.1)
+  - ZQFoundation/ZQCommon (0.1.1):
+    - ZQFoundation/ZQCommon/Category (= 0.1.1)
+    - ZQFoundation/ZQCommon/Control (= 0.1.1)
+    - ZQFoundation/ZQCommon/Macro (= 0.1.1)
+    - ZQFoundation/ZQCommon/NavBar (= 0.1.1)
+  - ZQFoundation/ZQCommon/Category (0.1.1)
+  - ZQFoundation/ZQCommon/Control (0.1.1)
+  - ZQFoundation/ZQCommon/Macro (0.1.1)
+  - ZQFoundation/ZQCommon/NavBar (0.1.1)
 
 DEPENDENCIES:
   - ZQFoundation (from `../`)
@@ -19,8 +19,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  ZQFoundation: c194ddaf1e77f02b8e8882718a7fcf36c8a5c578
+  ZQFoundation: f19824548f2034027d509c5b2916b8b3ed6ae159
 
-PODFILE CHECKSUM: 47202ae857645100094ac00bf96359ba450b450e
+PODFILE CHECKSUM: e58f31f35618a2aa89c75fc0d651c58c56a9bb06
 
 COCOAPODS: 1.6.1

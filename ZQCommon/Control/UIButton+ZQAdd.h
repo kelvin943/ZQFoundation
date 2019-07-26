@@ -10,7 +10,7 @@
 #import <objc/runtime.h>
 
 //按钮点击事件回调
-typedef void(^TouchUpInsideAction)(UIButton *button);
+typedef void(^TouchUpInsideAction)(UIButton * _Nullable button);
 
 //按钮图片和文字布局方式
 typedef NS_ENUM(NSInteger, SCButtonLayoutStyle) {
