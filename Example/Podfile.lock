@@ -1,0 +1,26 @@
+PODS:
+  - ZQFoundation (0.1.0):
+    - ZQFoundation/ZQCommon (= 0.1.0)
+  - ZQFoundation/ZQCommon (0.1.0):
+    - ZQFoundation/ZQCommon/Category (= 0.1.0)
+    - ZQFoundation/ZQCommon/Control (= 0.1.0)
+    - ZQFoundation/ZQCommon/Macro (= 0.1.0)
+    - ZQFoundation/ZQCommon/NavBar (= 0.1.0)
+  - ZQFoundation/ZQCommon/Category (0.1.0)
+  - ZQFoundation/ZQCommon/Control (0.1.0)
+  - ZQFoundation/ZQCommon/Macro (0.1.0)
+  - ZQFoundation/ZQCommon/NavBar (0.1.0)
+
+DEPENDENCIES:
+  - ZQFoundation (from `../`)
+
+EXTERNAL SOURCES:
+  ZQFoundation:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  ZQFoundation: c194ddaf1e77f02b8e8882718a7fcf36c8a5c578
+
+PODFILE CHECKSUM: 47202ae857645100094ac00bf96359ba450b450e
+
+COCOAPODS: 1.6.1
