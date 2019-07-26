@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ZQFoundation'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'basic or common components.'
   
   s.description      = 'zq common  module description'
@@ -25,14 +25,37 @@ Pod::Spec.new do |s|
   # s.default_subspec = 'Common', 'PAStatsAOP'hareCode
   
   # 基本分类 宏定义
-  s.subspec 'ZQShareCode' do |ss|
-      ss.source_files = 'ZQShareCode/ZQShareCode.h'
+  s.subspec 'ZQCommon' do |ss|
+      ss.source_files = 'ZQCommon/*.h'
+      ss.subspec 'Category' do |si|
+          si.source_files ='ZQCommon/Category/**/*.{h,m}'
+      end
       
-      ss.subspec 'Category' do |category|
-          category.source_files ='ZQShareCode/Category/**/*.{h,m,c}'
+      ss.subspec 'Control' do |control|
+          control.source_files ='ZQCommon/Control/**/*.{h,m}'
+      end
+      
+      ss.subspec 'NavBar' do |navbar|
+          navbar.source_files ='ZQCommon/NavBar/**/*.{h,m}'
+      end
+      
+      ss.subspec 'Macro' do |macro|
+        macro.source_files ='ZQCommon/Macro/**/*.{h,m}'
       end
   end
   
+#  # 基本分类 宏定义
+#  s.subspec 'ZQUIKit' do |ss|
+#      ss.source_files = 'ZQUIKit/*.h'
+#      ss.subspec 'NavBar' do |navbar|
+#          navbar.source_files ='ZQCommon/nav/**/*.{h,m,c}'
+#      end
+#
+#      ss.subspec 'Category' do |category|
+#          category.source_files ='ZQCommon/Category/**/*.{h,m,c}'
+#      end
+#  end
+
   
   
 end
