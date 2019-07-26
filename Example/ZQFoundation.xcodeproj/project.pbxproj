@@ -207,7 +207,7 @@
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
-				0E72EA63BC2ACEA314F45632 /* [CP] Embed Pods Frameworks */,
+				5E8D9DB37DB09D8278423A49 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -295,16 +295,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0E72EA63BC2ACEA314F45632 /* [CP] Embed Pods Frameworks */ = {
+		5E8D9DB37DB09D8278423A49 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-ZQFoundation_Example/Pods-ZQFoundation_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ZQFoundation/ZQFoundation.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZQFoundation.framework",
 			);
