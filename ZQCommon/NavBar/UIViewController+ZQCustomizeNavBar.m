@@ -266,7 +266,6 @@ static void __exchange_method(Class class, SEL originalSelector, SEL swizzlingSe
     //设置导航背景为透明色
     [self.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     self.navigationBar.shadowImage = [UIImage new];
-    ZQCustomNavBar.appearance.barColor = [UIColor yellowColor];
     [self zq_viewDidLoad];
 }
 
