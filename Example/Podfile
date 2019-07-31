@@ -3,8 +3,8 @@ source 'git@gitee.com:Kelvin943/macro-spec.git'
 use_frameworks!
 
 target 'ZQFoundation_Example' do
-    pod 'ZQFoundation', :subspecs => ['ZQCommon']
-#    pod 'ZQFoundation', :path => '../'
+#    pod 'ZQFoundation', :subspecs => ['ZQCommon']
+    pod 'ZQFoundation', :path => '../'
   target 'ZQFoundation_Tests' do
     inherit! :search_paths
 

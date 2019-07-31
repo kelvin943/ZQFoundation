@@ -27,6 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// Default to NO, bars are more likely to show.
 @property (nonatomic, assign) BOOL zq_prefersNavigationBarHidden;
 /// 左滑返回手势是否禁用
+/// Default to No
 @property (nonatomic, assign) BOOL zq_interactivePopDisabled;
 /// 左滑返回手势的触发范围（默认边缘值 13）
 @property (nonatomic, assign) CGFloat zq_popEdgeRegionSize;

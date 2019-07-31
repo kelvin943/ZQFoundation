@@ -1,4 +1,6 @@
 PODS:
+  - ZQFoundation (0.1.1):
+    - ZQFoundation/ZQCommon (= 0.1.1)
   - ZQFoundation/ZQCommon (0.1.1):
     - ZQFoundation/ZQCommon/Category (= 0.1.1)
     - ZQFoundation/ZQCommon/Control (= 0.1.1)
@@ -10,15 +12,15 @@ PODS:
   - ZQFoundation/ZQCommon/NavBar (0.1.1)
 
 DEPENDENCIES:
-  - ZQFoundation/ZQCommon
+  - ZQFoundation (from `../`)
 
-SPEC REPOS:
-  "git@gitee.com:Kelvin943/macro-spec.git":
-    - ZQFoundation
+EXTERNAL SOURCES:
+  ZQFoundation:
+    :path: "../"
 
 SPEC CHECKSUMS:
-  ZQFoundation: 949fdefea2b1dfb8704133cd38a57a11592fc59f
+  ZQFoundation: f19824548f2034027d509c5b2916b8b3ed6ae159
 
-PODFILE CHECKSUM: e37069011bf0dfc5cecde4aa58930901dd7c6e1d
+PODFILE CHECKSUM: 55a9c5be2e7c12399127ee3732eb9f34be90ced6
 
 COCOAPODS: 1.6.1

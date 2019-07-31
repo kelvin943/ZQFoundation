@@ -42,6 +42,8 @@
     #define ZQLogMacro(x) ZQLog(@"%s=\n%s", #x, __toString(x))
 
     //打印代码执行时间,查看执行次数用条件断点 : 执行次数%H
+    //#define TICK   CFAbsoluteTime start = CFAbsoluteTimeGetCurrent();
+    //#define TOCK   NSLog(@"Time: %f", CFAbsoluteTimeGetCurrent() - start)
     #define TICK   NSDate *startTime = [NSDate date]
     #define TOCK   NSLog(@"Time: %f", -[startTime timeIntervalSinceNow])
     #define START_COUNT_TIME(start) clock_t start = clock()
@@ -97,17 +99,17 @@
      });
  */
 
-
-
 #pragma mark - 方法
-    #define ShareAppDelegate       ((AppDelegate *)[UIApplication sharedApplication].delegate)
-    #define ShareWindow            [[UIApplication sharedApplication].delegate window]
-    #define ShareKeyWindow         [UIApplication sharedApplication].keyWindow
-    #define ShareUserDefault       [NSUserDefaults standardUserDefaults]
+    #define ZQShareAppDelegate       ((AppDelegate *)[UIApplication sharedApplication].delegate)
+    #define ZQShareWindow            [[UIApplication sharedApplication].delegate window]
+    #define ZQShareKeyWindow         [UIApplication sharedApplication].keyWindow
+    #define ZQShareUserDefault       [NSUserDefaults standardUserDefaults]
     //获取图片资源
-    #define GetLocalImage(imageName)   [UIImage imageNamed:[NSString stringWithFormat:@"%@",imageName]]
+    #define ZQGetLocalImage(imageName)   [UIImage imageNamed:[NSString stringWithFormat:@"%@",imageName]]
     //获取当前语言
     #define ZQCurrentLanguage      ([[NSLocale preferredLanguages] objectAtIndex:0])
+    //取消键盘响应
+    #define ZQHideKeyboard    [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];[ZQShareKeyWindow endEditing:YES];
 
 #pragma mark - UIApplicationInfo
     #define ZQAppName              [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"]
@@ -116,25 +118,26 @@
     #define ZQAppBulidVersion      [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"]
 
 #pragma mark - Screen
-    #define ScreenWidth            [UIScreen mainScreen].bounds.size.width
-    #define ScreenHeight           [UIScreen mainScreen].bounds.size.height
-    #define ScreenSize             [UIScreen mainScreen].bounds.size
+    #define ZQScreenFrame            [UIScreen mainScreen].bounds
+    #define ZQScreenWidth            [UIScreen mainScreen].bounds.size.width
+    #define ZQScreenHeight           [UIScreen mainScreen].bounds.size.height
+    #define ZQScreenSize             [UIScreen mainScreen].bounds.size
     //状态栏frame
-    #define StatusbarRect           [[UIApplication sharedApplication] statusBarFrame]
+    #define ZQStatusbarRect           [[UIApplication sharedApplication] statusBarFrame]
     //状态栏高度（刘海屏:44 含 X/XS/XR/XS_MAX,非刘海屏：20）  
-    #define StatusBarH              StatusbarRect.size.height
+    #define ZQStatusBarH              ZQStatusbarRect.size.height
     //导航栏目高度（含状态栏）
-    #define NavBarHeight            (StatusBarH + 44)
+    #define ZQNavBarHeight            (ZQStatusBarH + 44)
     //底部安全区外高度
-    #define BottomGestureAreaHeight (StatusBarH > 20 ? 34:0)
+    #define ZQBottomGestureAreaHeight (ZQStatusBarH > 20 ? 34:0)
     //标签bar 高度
-    #define TabBarHeight            (BottomGestureAreaHeight + 49)
+    #define ZQTabBarHeight            (ZQBottomGestureAreaHeight + 49)
     //默认的cell高度
-    #define CellDefaultHeight       (44.f)
+    #define ZQCellDefaultHeight       (44.f)
     //英文键盘高度
-    #define EnglishKeyboardHeight   (216.f)
+    #define ZQEnglishKeyboardHeight   (216.f)
     //中文键盘高度
-    #define ChineseKeyboardHeight   (252.f)
+    #define ZQChineseKeyboardHeight   (252.f)
 
 
 
@@ -166,22 +169,35 @@
 //    #define BeginIgnoreDeprecatedWarning BeginIgnoreClangWarning(-Wdeprecated-declarations)
 //    #define EndIgnoreDeprecatedWarning EndIgnoreClangWarning
 
+
+#pragma mark - 判断设备
+    /** 判断是否为iPhone*/
+    #define ZQ_ISiPhone   (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+    /** 判断是否为iPad*/
+    #define ZQ_ISiPad     (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+//    /** 判断是真机还是模拟器*/
+//    #if TARGET_OS_IPHONE
+//    //真机
+//    #endif
+//    #if TARGET_IPHONE_SIMULATOR
+//    //模拟器
+//    #endif
 #pragma mark - 判断机型
     //iphone5、iphoneSE 逻辑像是320:568  @2x
-    #define IPHONE5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
+    #define ZQ_IPHONE5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
     //iphone6、iphone6s、iphone7、iphone8 逻辑像素375:667 @2x
-    #define IPHONE6 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(750, 1334), [[UIScreen mainScreen] currentMode].size) : NO)
+    #define ZQ_IPHONE6 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(750, 1334), [[UIScreen mainScreen] currentMode].size) : NO)
     //iphone6p、iphone7p、iphone8p 逻辑像素 414:736 @3x
-    #define IPHONE6P ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2208), [[UIScreen mainScreen] currentMode].size) : NO)
+    #define ZQ_IPHONE6P ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2208), [[UIScreen mainScreen] currentMode].size) : NO)
     //iphonex、iphonexs  逻辑像素 375:812  @3x
-    #define IPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+    #define ZQ_IPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
     //iphonexr 逻辑像素 414:896 @2x
-    #define IPhoneXR ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(828, 1792), [[UIScreen mainScreen] currentMode].size) : NO)
+    #define ZQ_IPhoneXR ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(828, 1792), [[UIScreen mainScreen] currentMode].size) : NO)
     //iphonexs max 逻辑像素 414:896 @3x
-    #define IPhoneXS_Max ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2688), [[UIScreen mainScreen] currentMode].size) : NO)
+    #define ZQ_IPhoneXS_Max ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2688), [[UIScreen mainScreen] currentMode].size) : NO)
 
     //判断是否是刘海屏幕
-    #define IPHONEX ((StatusBarH > 20) ? YES : NO)
+    #define ZQ_IPHONEX ((StatusBarH > 20) ? YES : NO)
 
 #pragma mark - 判断系统版本
     #define IOS9_OrLater    [[[UIDevice currentDevice] systemVersion] doubleValue] >= 9.0
