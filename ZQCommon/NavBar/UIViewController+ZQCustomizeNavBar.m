@@ -243,19 +243,6 @@ static void __exchange_method(Class class, SEL originalSelector, SEL swizzlingSe
     objc_setAssociatedObject(self, @selector(zq_willAppearInjectBlock), block, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
-//- (void)setZq_barHeadView:(UIView *)barHeadView  {
-//    objc_setAssociatedObject(self, @selector(zq_barHeadView), barHeadView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-//}
-//- (UIView*)zq_barHeadView {
-//    if(!objc_getAssociatedObject(self, _cmd)){
-//        UIView * barHeadView = [[UIView alloc] initWithFrame:CGRectZero];
-//        objc_setAssociatedObject(self, _cmd, barHeadView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-//        return barHeadView;
-//    }else{
-//        return objc_getAssociatedObject(self, _cmd);
-//    }
-//}
-
 @end
 
 @implementation UINavigationController (ZQCustomizeNavBar)
