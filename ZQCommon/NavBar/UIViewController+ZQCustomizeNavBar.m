@@ -268,6 +268,7 @@ static void __exchange_method(Class class, SEL originalSelector, SEL swizzlingSe
 
 - (void)zq_pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
     
+    //当被包含在tabar中navgationcontroller 一般几个一级页面需要显示 tabbar 二级及以下页面不需要选tabar
     if (self.viewControllers.count > 0) {
         viewController.hidesBottomBarWhenPushed =YES;
     }
