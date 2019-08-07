@@ -267,7 +267,10 @@ static void __exchange_method(Class class, SEL originalSelector, SEL swizzlingSe
 }
 
 - (void)zq_pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
-//    viewController.hidesBottomBarWhenPushed =YES; 这里会导致tabbar 的显示与隐藏出现BUG
+    
+    if (self.viewControllers.count > 0) {
+        viewController.hidesBottomBarWhenPushed =YES;
+    }
     
     if (![self.interactivePopGestureRecognizer.view.gestureRecognizers containsObject:self.zq_fullscreenPopGestureRecognizer]) {
         
