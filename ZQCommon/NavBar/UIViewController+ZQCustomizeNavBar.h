@@ -22,6 +22,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIViewController (ZQCustomizeNavBar)
 
+// 当被包含在容器(navcontrooler)的VC如 tabarvc 不需要出处理导航栏相关UI应确保将zq_willAppearInjectBlockIgnored置为YES
+// 这样就会是改VC避免受注入代码的影响!
+// Default to NO, vc are more likely  need customBar.
+@property (nonatomic, assign) BOOL zq_willAppearInjectBlockIgnored;
 /// Indicate this view controller prefers its navigation bar hidden or not,
 /// checked when view controller based navigation bar's appearance is enabled.
 /// Default to NO, bars are more likely to show.

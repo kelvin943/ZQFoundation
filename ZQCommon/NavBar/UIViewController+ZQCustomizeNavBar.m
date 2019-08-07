@@ -89,6 +89,16 @@ static void __exchange_method(Class class, SEL originalSelector, SEL swizzlingSe
 @implementation UIViewController (ZQCustomizeNavBar)
 
 #pragma mark - AssociatedObject
+
+//是否是当前VC不受 InjectBlock 注入影响 
+- (BOOL)zq_willAppearInjectBlockIgnored {
+    return [objc_getAssociatedObject(self, _cmd) boolValue];
+}
+
+- (void)setZq_willAppearInjectBlockIgnored:(BOOL)ignore {
+    objc_setAssociatedObject(self, @selector(zq_willAppearInjectBlockIgnored), @(ignore), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
 //是否隐藏导航栏
 - (BOOL)zq_prefersNavigationBarHidden {
     return [objc_getAssociatedObject(self, _cmd) boolValue];
@@ -159,19 +169,19 @@ static void __exchange_method(Class class, SEL originalSelector, SEL swizzlingSe
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         // Inject "-viewDidLoad"
-        __exchange_method([self class], @selector(viewDidLoad), @selector(zq_viewDidLoad));
+        __exchange_method([self class], @selector(viewDidLoad), @selector(vc_viewDidLoad));
         
         // Inject "-viewWillAppear"
-        __exchange_method([self class], @selector(viewWillAppear:), @selector(zq_viewWillAppear:));
+        __exchange_method([self class], @selector(viewWillAppear:), @selector(vc_viewWillAppear:));
         
         // Inject "-viewWillDisappear"
-        __exchange_method([self class], @selector(viewWillDisappear:), @selector(zq_viewWillDisappear:));
+        __exchange_method([self class], @selector(viewWillDisappear:), @selector(vc_viewWillDisappear:));
     });
 }
 
 #pragma mark - exchangeMethod
 
-- (void)zq_viewDidLoad{
+- (void)vc_viewDidLoad{
     //不隐藏导航栏的话添加一个headView
     if (self.navigationController && !self.zq_prefersNavigationBarHidden) {
         [self.view addSubview:self.zq_CustomNavBar];
@@ -194,7 +204,7 @@ static void __exchange_method(Class class, SEL originalSelector, SEL swizzlingSe
     }
     
     // Forward to primary implementation.
-    [self zq_viewDidLoad];
+    [self vc_viewDidLoad];
     
     [self.view bringSubviewToFront:self.zq_CustomNavBar];
     
@@ -202,18 +212,18 @@ static void __exchange_method(Class class, SEL originalSelector, SEL swizzlingSe
 }
 
 
-- (void)zq_viewWillAppear:(BOOL)animated {
+- (void)vc_viewWillAppear:(BOOL)animated {
     // Forward to primary implementation.
-    [self zq_viewWillAppear:animated];
+    [self vc_viewWillAppear:animated];
     
-    if (self.zq_willAppearInjectBlock) {
+    if (!self.zq_willAppearInjectBlockIgnored && self.zq_willAppearInjectBlock) {
         self.zq_willAppearInjectBlock(self, animated);
     }
 }
 
-- (void)zq_viewWillDisappear:(BOOL)animated {
+- (void)vc_viewWillDisappear:(BOOL)animated {
     // Forward to primary implementation.
-    [self zq_viewWillDisappear:animated];
+    [self vc_viewWillDisappear:animated];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         UIViewController *viewController = self.navigationController.viewControllers.lastObject;
@@ -255,22 +265,22 @@ static void __exchange_method(Class class, SEL originalSelector, SEL swizzlingSe
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         // Inject "-viewDidLoad"
-        __exchange_method([self class], @selector(viewDidLoad), @selector(zq_viewDidLoad));
+        __exchange_method([self class], @selector(viewDidLoad), @selector(nav_viewDidLoad));
         
         // Inject "-pushViewController:animated:"
         __exchange_method([self class], @selector(pushViewController:animated:), @selector(zq_pushViewController:animated:));
     });
 }
 
-- (void)zq_viewDidLoad {
+- (void)nav_viewDidLoad {
     //设置导航背景为透明色
     [self.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     self.navigationBar.shadowImage = [UIImage new];
-    [self zq_viewDidLoad];
+    [self nav_viewDidLoad];
 }
 
 - (void)zq_pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    viewController.hidesBottomBarWhenPushed =YES;
+//    viewController.hidesBottomBarWhenPushed =YES; 这里会导致tabbar 的显示与隐藏出现BUG
     
     if (![self.interactivePopGestureRecognizer.view.gestureRecognizers containsObject:self.zq_fullscreenPopGestureRecognizer]) {
         
