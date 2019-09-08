@@ -44,6 +44,23 @@ Pod::Spec.new do |s|
       end
   end
   
+  s.subspec 'ZQUIKit' do |ss|
+      ss.subspec 'ZQBaseModel' do |baseModel|
+          baseModel.source_files = 'ZQUIKit/ZQBaseModel/**/*.{h,m}'
+          baseModel.dependency 'YYModel','1.0.4'
+      end
+      ss.subspec 'ZQBaseVC' do |baseVC|
+          baseVC.source_files = 'ZQUIKit/ZQBaseVC/**/*.{h,m}'
+      end
+      ss.subspec 'ZQTableView' do |baseTableview|
+         baseTableview.source_files = 'ZQUIKit/ZQTableView/**/*.{h,m}'
+         baseTableview.dependency 'ZQFoundation/ZQUIKit/ZQBaseVC'
+         baseTableview.dependency 'ZQFoundation/ZQUIKit/ZQBaseModel'
+         baseTableview.dependency 'MJRefresh',  '3.2.0'
+        
+      end
+  end
+  
 #  # 基本分类 宏定义
 #  s.subspec 'ZQUIKit' do |ss|
 #      ss.source_files = 'ZQUIKit/*.h'

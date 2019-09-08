@@ -1,5 +1,5 @@
-source 'git@gitee.com:Kelvin943/macro-spec.git'
-
+#source 'git@gitee.com:Kelvin943/macro-spec.git'
+source 'https://cdn.cocoapods.org/'
 use_frameworks!
 
 target 'ZQFoundation_Example' do

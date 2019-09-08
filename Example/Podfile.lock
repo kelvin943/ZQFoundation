@@ -1,6 +1,9 @@
 PODS:
+  - MJRefresh (3.2.0)
+  - YYModel (1.0.4)
   - ZQFoundation (0.1.1):
     - ZQFoundation/ZQCommon (= 0.1.1)
+    - ZQFoundation/ZQUIKit (= 0.1.1)
   - ZQFoundation/ZQCommon (0.1.1):
     - ZQFoundation/ZQCommon/Category (= 0.1.1)
     - ZQFoundation/ZQCommon/Control (= 0.1.1)
@@ -10,17 +13,35 @@ PODS:
   - ZQFoundation/ZQCommon/Control (0.1.1)
   - ZQFoundation/ZQCommon/Macro (0.1.1)
   - ZQFoundation/ZQCommon/NavBar (0.1.1)
+  - ZQFoundation/ZQUIKit (0.1.1):
+    - ZQFoundation/ZQUIKit/ZQBaseModel (= 0.1.1)
+    - ZQFoundation/ZQUIKit/ZQBaseVC (= 0.1.1)
+    - ZQFoundation/ZQUIKit/ZQTableView (= 0.1.1)
+  - ZQFoundation/ZQUIKit/ZQBaseModel (0.1.1):
+    - YYModel (= 1.0.4)
+  - ZQFoundation/ZQUIKit/ZQBaseVC (0.1.1)
+  - ZQFoundation/ZQUIKit/ZQTableView (0.1.1):
+    - MJRefresh (= 3.2.0)
+    - ZQFoundation/ZQUIKit/ZQBaseModel
+    - ZQFoundation/ZQUIKit/ZQBaseVC
 
 DEPENDENCIES:
   - ZQFoundation (from `../`)
+
+SPEC REPOS:
+  https://cdn.cocoapods.org/:
+    - MJRefresh
+    - YYModel
 
 EXTERNAL SOURCES:
   ZQFoundation:
     :path: "../"
 
 SPEC CHECKSUMS:
-  ZQFoundation: f19824548f2034027d509c5b2916b8b3ed6ae159
+  MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
+  YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
+  ZQFoundation: a2aa9a99913faa1c8493251cbc2fce346f8f9a60
 
-PODFILE CHECKSUM: 5262d38190649215effd36b180963cd861cc096d
+PODFILE CHECKSUM: 529fe9b76d10e86bf65b98a30a0f20cec6f5bc93
 
-COCOAPODS: 1.7.2
+COCOAPODS: 1.7.4
