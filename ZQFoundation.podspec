@@ -46,11 +46,14 @@ Pod::Spec.new do |s|
   
   s.subspec 'ZQUIKit' do |ss|
       ss.subspec 'ZQBaseModel' do |baseModel|
-          baseModel.source_files = 'ZQUIKit/ZQBaseModel/**/*.{h,m}'
-          baseModel.dependency 'YYModel','1.0.4'
+         baseModel.source_files = 'ZQUIKit/ZQBaseModel/**/*.{h,m}'
+         baseModel.dependency 'YYModel','1.0.4'
+      end
+      ss.subspec 'ZQBaseViewModel' do |baseViewModel|
+         baseViewModel.source_files = 'ZQUIKit/ZQBaseViewModel/**/*.{h,m}'
       end
       ss.subspec 'ZQBaseVC' do |baseVC|
-          baseVC.source_files = 'ZQUIKit/ZQBaseVC/**/*.{h,m}'
+         baseVC.source_files = 'ZQUIKit/ZQBaseVC/**/*.{h,m}'
       end
       ss.subspec 'ZQTableView' do |baseTableview|
          baseTableview.source_files = 'ZQUIKit/ZQTableView/**/*.{h,m}'

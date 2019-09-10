@@ -24,11 +24,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BaseTableViewAdaptor : NSObject<UITableViewDelegate, UITableViewDataSource>
 
+@property (nonatomic,   weak) id<BaseTableViewAdaptorDelegate> delegate;
 @property (nonatomic,   weak) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *items;
 @property (nonatomic, assign) BOOL dragRefreshEnable;
-@property (nonatomic,   weak) id<BaseTableViewAdaptorDelegate> delegate;
-
 
 @end
 

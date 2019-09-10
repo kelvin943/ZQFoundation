@@ -1,5 +1,6 @@
 #source 'git@gitee.com:Kelvin943/macro-spec.git'
-source 'https://cdn.cocoapods.org/'
+#source 'https://cdn.cocoapods.org/'
+source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
 target 'ZQFoundation_Example' do
@@ -7,8 +8,6 @@ target 'ZQFoundation_Example' do
     pod 'ZQFoundation', :path => '../'
   target 'ZQFoundation_Tests' do
     inherit! :search_paths
-
-    
   end
 end
 

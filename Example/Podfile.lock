@@ -16,10 +16,12 @@ PODS:
   - ZQFoundation/ZQUIKit (0.1.1):
     - ZQFoundation/ZQUIKit/ZQBaseModel (= 0.1.1)
     - ZQFoundation/ZQUIKit/ZQBaseVC (= 0.1.1)
+    - ZQFoundation/ZQUIKit/ZQBaseViewModel (= 0.1.1)
     - ZQFoundation/ZQUIKit/ZQTableView (= 0.1.1)
   - ZQFoundation/ZQUIKit/ZQBaseModel (0.1.1):
     - YYModel (= 1.0.4)
   - ZQFoundation/ZQUIKit/ZQBaseVC (0.1.1)
+  - ZQFoundation/ZQUIKit/ZQBaseViewModel (0.1.1)
   - ZQFoundation/ZQUIKit/ZQTableView (0.1.1):
     - MJRefresh (= 3.2.0)
     - ZQFoundation/ZQUIKit/ZQBaseModel
@@ -29,7 +31,7 @@ DEPENDENCIES:
   - ZQFoundation (from `../`)
 
 SPEC REPOS:
-  https://cdn.cocoapods.org/:
+  https://github.com/cocoapods/specs.git:
     - MJRefresh
     - YYModel
 
@@ -40,8 +42,8 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
-  ZQFoundation: a2aa9a99913faa1c8493251cbc2fce346f8f9a60
+  ZQFoundation: d2485e9e193f0fa3ce4a9d106272324aec67abb4
 
-PODFILE CHECKSUM: 529fe9b76d10e86bf65b98a30a0f20cec6f5bc93
+PODFILE CHECKSUM: 58303efb248cf789080b448b9ad503a29de7fa56
 
 COCOAPODS: 1.7.4

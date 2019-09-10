@@ -10,6 +10,7 @@
 @interface BaseTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) id<CellItemBasicProtocol> object;
+
 + (NSString *)cellIdentifier;
 + (CGFloat)tableView:(UITableView*)tableView rowHeightForObject:(id<CellItemBasicProtocol>)object;
 

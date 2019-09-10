@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "YYModel.h"
 @protocol  CellItemBasicProtocol <NSObject>
 @property (nonatomic, assign) Class cellClass;
 @property (nonatomic, assign) NSInteger cellType;
@@ -14,12 +14,9 @@
 @property (nonatomic,   weak) id  cellTarget;
 @end
 
-@interface BaseModel : NSObject <CellItemBasicProtocol>
+@interface BaseModel : NSObject <CellItemBasicProtocol,NSCopying, NSCoding, YYModel>
 
 @end
-
-
-
 
 @interface BaseListModel : BaseModel
 //数据数组
