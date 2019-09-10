@@ -7,10 +7,17 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSInteger, ZQTableViewRefreshType){
+    ZQTableViewRefreshTypePullDown = 1,       //下拉
+    ZQTableViewRefreshTypePullUp ,            //上拉
+};
+
+
+
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol CellItemBasicProtocol;
-@protocol BaseTableViewAdaptorDelegate <NSObject>
+@protocol BaseTableViewAdaptorDelegate <UITableViewDelegate>
 
 @optional
 //选中 cell 后调用
@@ -19,6 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 //对cell设置数据源之后调用
 - (void)tableView:(UITableView *)tableView didSetObject:(id<CellItemBasicProtocol>)object cell:(UITableViewCell *)cell;
 
+// 下拉刷新回调
+- (void)refreshReload:(ZQTableViewRefreshType)pullType;
 @end
 
 
@@ -26,8 +35,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic,   weak) id<BaseTableViewAdaptorDelegate> delegate;
 @property (nonatomic,   weak) UITableView *tableView;
+//数据源
 @property (nonatomic, strong) NSMutableArray *items;
-@property (nonatomic, assign) BOOL dragRefreshEnable;
+//是否开启下拉刷新
+@property (nonatomic, assign) BOOL pullRefreshEnable;
+//是否开启上拉加载
+@property (nonatomic, assign) BOOL loadMoreEnable;
 
 @end
 

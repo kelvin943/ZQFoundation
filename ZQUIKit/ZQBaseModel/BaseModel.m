@@ -53,7 +53,7 @@
 
 -(NSMutableArray *)items{
     if (!_items) {
-        _items = @{}.mutableCopy;
+        _items = @[].mutableCopy;
     }
     return _items;
 }

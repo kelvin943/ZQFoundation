@@ -10,3 +10,8 @@
 @implementation BaseViewModel
 
 @end
+
+
+@implementation BaseTableViewModel
+
+@end

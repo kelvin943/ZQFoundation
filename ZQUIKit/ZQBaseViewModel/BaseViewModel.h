@@ -13,4 +13,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+
+@interface BaseTableViewModel : BaseViewModel
+
+@end
+
 NS_ASSUME_NONNULL_END
