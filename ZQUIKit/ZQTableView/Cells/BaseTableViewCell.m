@@ -74,16 +74,16 @@ static const CGFloat DefaultCellHeight = 44.0f;
 
 @implementation ZQDefaultCellItem
 + (instancetype)cellWithTitleStr:(NSString *)titleStr content:(NSString*)contentStr {
-    return [self cellWithTitleStr:titleStr content:contentStr bgColor:[UIColor whiteColor] height:DefaultCellHeight]
+    return [self cellWithTitleStr:titleStr content:contentStr bgColor:[UIColor whiteColor] height:DefaultCellHeight];
 }
 
 + (instancetype)cellWithTitleStr:(NSString *)titleStr content:(NSString*)contentStr bgColor:(UIColor *)color {
-    return [self cellWithTitleStr:titleStr content:contentStr bgColor:colorheight:DefaultCellHeight]
+    return [self cellWithTitleStr:titleStr content:contentStr bgColor:color height:DefaultCellHeight];
 }
 + (instancetype)cellWithTitleStr:(NSString *)titleStr content:(NSString*)contentStr height:(CGFloat)height {
-    return [self cellWithTitleStr:titleStr content:contentStr bgColor:[UIColor whiteColor] height:height]
+    return [self cellWithTitleStr:titleStr content:contentStr bgColor:[UIColor whiteColor] height:height];
 }
-+ (instan cetype)cellWithTitleStr:(NSString *)titleStr
++ (instancetype)cellWithTitleStr:(NSString *)titleStr
                          content:(NSString*)contentStr
                          bgColor:(UIColor*)color
                            height:(CGFloat)height {
@@ -112,7 +112,7 @@ static const CGFloat DefaultCellHeight = 44.0f;
     [super setObject:object];
     if ([object isKindOfClass:[ZQDefaultCellItem class]]) {
         ZQDefaultCellItem *item = (ZQDefaultCellItem *)object;
-        self.contentView.backgroundColor = item.bgColor
+        self.contentView.backgroundColor = item.bgColor;
         self.textLabel.text = item.titleStr;
         self.detailTextLabel.text = item.contentStr;
     }
