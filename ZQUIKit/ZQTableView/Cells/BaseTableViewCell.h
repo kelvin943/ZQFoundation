@@ -8,11 +8,41 @@
 #import <UIKit/UIKit.h>
 #import "BaseModel.h"
 @interface BaseTableViewCell : UITableViewCell
-
-@property (nonatomic, strong) id<CellItemBasicProtocol> object;
-
+@property (nonatomic, strong) id<CellModelBasicProtocol> cellModel;
 + (NSString *)cellIdentifier;
-+ (CGFloat)tableView:(UITableView*)tableView rowHeightForObject:(id<CellItemBasicProtocol>)object;
++ (CGFloat)tableView:(UITableView*)tableView rowHeightForObject:(id<CellModelBasicProtocol>)cellModel;
 
+@end
+
+
+
+//cell快速创建
+#pragma mark - empty cell
+@interface ZQEmptyCellItem : BaseModel
+@property (nonatomic,strong) UIColor *bgColor;
++ (instancetype)emptyCellItem;
++ (instancetype)emptyCellItemWithHeight:(CGFloat)height;
++ (instancetype)emptyCellItemWithBackgroundColor:(UIColor*)color;
++ (instancetype)emptyCellItemWithHeight:(CGFloat)height backgroundColor:(UIColor*)color;
+
+@end
+
+@interface ZQEmptyCell: BaseTableViewCell
+@end
+
+#pragma mark - default cell
+@interface ZQDefaultCellItem : BaseModel
+@property (nonatomic,  copy) NSString *titleStr;
+@property (nonatomic,  copy) NSString *contentStr;
+@property (nonatomic,strong) UIColor  *bgColor;
++ (instancetype)cellWithTitleStr:(NSString *)titleStr content:(NSString*)contentStr;
++ (instancetype)cellWithTitleStr:(NSString *)titleStr content:(NSString*)contentStr bgColor:(UIColor*)color;
++ (instancetype)cellWithTitleStr:(NSString *)titleStr content:(NSString*)contentStr height:(CGFloat)height;
++ (instancetype)cellWithTitleStr:(NSString *)titleStr
+                         content:(NSString*)contentStr
+                         bgColor:(UIColor*)color
+                          height:(CGFloat)height;
+@end
+@interface ZQDefaultCell : BaseTableViewCell
 @end
 

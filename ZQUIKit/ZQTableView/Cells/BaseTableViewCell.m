@@ -7,21 +7,115 @@
 
 #import "BaseTableViewCell.h"
 
+static const CGFloat DefaultEmptyCellHeight = 10.0f;
+static const CGFloat DefaultCellHeight = 44.0f;
+
 @implementation BaseTableViewCell
 
-- (void)setObject:(id<CellItemBasicProtocol>)object {
-    _object = object;
+- (void)setObject:(id<CellModelBasicProtocol>)cellModel {
+    _cellModel = cellModel;
 }
 
 + (NSString *)cellIdentifier {
     return NSStringFromClass([self class]);
 }
 
-+ (CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id<CellItemBasicProtocol>)object {
-    if (object.cellHeight > 0) {
-        return object.cellHeight.floatValue;
++ (CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id<CellModelBasicProtocol>)cellModel {
+    if (cellModel.cellHeight > 0) {
+        return cellModel.cellHeight.floatValue;
     }
-    return 44.0;
+    return DefaultCellHeight;
+}
+
+@end
+
+@implementation ZQEmptyCellItem
++ (instancetype)emptyCellItem {
+    return [self emptyCellItemWithHeight:DefaultEmptyCellHeight];
+}
+
++ (instancetype)emptyCellItemWithHeight:(CGFloat)height {
+    return [self emptyCellItemWithHeight:height backgroundColor:[UIColor whiteColor]];
+}
+
++ (instancetype)emptyCellItemWithBackgroundColor:(UIColor* )color {
+    return [self emptyCellItemWithHeight:DefaultEmptyCellHeight backgroundColor:color];
+}
+
++ (instancetype)emptyCellItemWithHeight:(CGFloat)height backgroundColor:(UIColor* )color {
+    ZQEmptyCellItem *item = [ZQEmptyCellItem new];
+    item.cellHeight = @(height);
+    item.bgColor = color;
+    item.cellClass = [ZQEmptyCell class];
+    return item;
+}
+@end
+
+@implementation ZQEmptyCell
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        self.accessoryType = UITableViewCellAccessoryNone;
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    return self;
+}
+
+- (void)setObject:(id<CellModelBasicProtocol>)object {
+    [super setObject:object];
+    if ([object isKindOfClass:[ZQEmptyCellItem class]]) {
+        ZQEmptyCellItem *item = (ZQEmptyCellItem *)object;
+        self.contentView.backgroundColor = item.bgColor;
+    }
+}
+@end
+
+
+
+@implementation ZQDefaultCellItem
++ (instancetype)cellWithTitleStr:(NSString *)titleStr content:(NSString*)contentStr {
+    return [self cellWithTitleStr:titleStr content:contentStr bgColor:[UIColor whiteColor] height:DefaultCellHeight]
+}
+
++ (instancetype)cellWithTitleStr:(NSString *)titleStr content:(NSString*)contentStr bgColor:(UIColor *)color {
+    return [self cellWithTitleStr:titleStr content:contentStr bgColor:colorheight:DefaultCellHeight]
+}
++ (instancetype)cellWithTitleStr:(NSString *)titleStr content:(NSString*)contentStr height:(CGFloat)height {
+    return [self cellWithTitleStr:titleStr content:contentStr bgColor:[UIColor whiteColor] height:height]
+}
++ (instan cetype)cellWithTitleStr:(NSString *)titleStr
+                         content:(NSString*)contentStr
+                         bgColor:(UIColor*)color
+                           height:(CGFloat)height {
+    ZQDefaultCellItem *item =  [ZQDefaultCellItem new];
+    item.cellHeight = @(height);
+    item.bgColor = color;
+    item.titleStr = titleStr;
+    item.contentStr = titleStr;
+    item.cellClass = [ZQDefaultCell class];
+    return item;
+}
+
+@end
+
+@implementation ZQDefaultCell
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        self.accessoryType = UITableViewCellAccessoryNone;
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    return self;
+}
+
+- (void)setObject:(id<CellModelBasicProtocol>)object {
+    [super setObject:object];
+    if ([object isKindOfClass:[ZQDefaultCellItem class]]) {
+        ZQDefaultCellItem *item = (ZQDefaultCellItem *)object;
+        self.contentView.backgroundColor = item.bgColor
+        self.textLabel.text = item.titleStr;
+        self.detailTextLabel.text = item.contentStr;
+    }
 }
 
 @end
