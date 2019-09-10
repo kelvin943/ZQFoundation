@@ -7,6 +7,8 @@
 //
 
 #import "ZQViewController.h"
+#import "BaseTableViewCell.h"
+#import "YYClassInfo.h"
 
 @interface ZQViewController ()
 
@@ -14,12 +16,42 @@
 
 @implementation ZQViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad{
     [super viewDidLoad];
+    [self.tableView registerClassesWithReuseIds:@[@"ZQDefaultCell",@"ZQEmptyCell"]];
+    self.tableViewAdaptor.pullRefreshEnable = YES;
+    self.tableViewAdaptor.loadMoreEnable = YES;
+    
+    self.tableView.tableFooterView = [[UIView alloc] init];
+    [self construstData];
+    
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
+- (void)refreshReload:(ZQTableViewRefreshType)pullType {
+    [self.tableViewAdaptor.mjHeader endRefreshing];
+    [self.tableViewAdaptor.mjFooter endRefreshing];
+    self.tableViewAdaptor.loadMoreEnable = NO;
+}
+
+
+- (void)construstData {
+    NSMutableArray * items = @[].mutableCopy;
+//    YYClassIvarInfo * info  = [[YYClassIvarInfo alloc] init];
+    
+    [items addObject:[ZQDefaultCellItem cellWithTitleStr:@"123" content:@"456"]];
+    [items addObject:[ZQEmptyCellItem emptyCellItemWithBackgroundColor:[UIColor redColor]]];
+    [items addObject:[ZQEmptyCellItem emptyCellItem]];
+    [items addObject:[ZQDefaultCellItem cellWithTitleStr:@"123" content:@"456"]];
+    [items addObject:[ZQEmptyCellItem emptyCellItemWithBackgroundColor:[UIColor yellowColor]]];
+    [items addObject:[ZQDefaultCellItem cellWithTitleStr:@"123" content:@"456"]];
+    [items addObject:[ZQEmptyCellItem emptyCellItem]];
+    [items addObject:[ZQDefaultCellItem cellWithTitleStr:@"123" content:@"456"]];
+    
+    self.tableViewAdaptor.items = items;
+    [self.tableView reloadData];
+    
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

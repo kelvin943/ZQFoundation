@@ -6,12 +6,11 @@
 //
 
 #import "BaseTableViewAdaptor.h"
-#import "MJRefresh.h"
+
 #import "BaseTableViewCell.h"
 
 @interface BaseTableViewAdaptor()
-@property (nonatomic,strong)MJRefreshNormalHeader *mjHeader;//mj下拉刷新控件
-@property (nonatomic,strong)MJRefreshBackNormalFooter *mjFooter;//mj上拉加载
+
 @end
 
 @implementation BaseTableViewAdaptor

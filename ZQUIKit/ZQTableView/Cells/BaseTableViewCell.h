@@ -14,8 +14,6 @@
 
 @end
 
-
-
 //cell快速创建
 #pragma mark - empty cell
 @interface ZQEmptyCellItem : BaseModel

@@ -17,4 +17,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+@interface UITableView (registerExtern)
+- (void)registerNibsWithReuseIds:(NSArray<NSString*> *)arr;
+- (void)registerClassesWithReuseIds:(NSArray<NSString*> *)arr;
+@end
 NS_ASSUME_NONNULL_END
+
+
+

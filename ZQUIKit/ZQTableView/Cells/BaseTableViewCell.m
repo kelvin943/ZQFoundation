@@ -10,7 +10,19 @@
 static const CGFloat DefaultEmptyCellHeight = 10.0f;
 static const CGFloat DefaultCellHeight = 44.0f;
 
+#define viewWidth  [UIScreen mainScreen].bounds.size.width
+
 @implementation BaseTableViewCell
+
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+        self.separatorInset = UIEdgeInsetsMake(0,viewWidth,0,0);
+        self.accessoryType = UITableViewCellAccessoryNone;
+    }
+    return self;
+}
 
 - (void)setObject:(id<CellModelBasicProtocol>)cellModel {
     _cellModel = cellModel;
@@ -61,7 +73,7 @@ static const CGFloat DefaultCellHeight = 44.0f;
     return self;
 }
 
-- (void)setObject:(id<CellModelBasicProtocol>)object {
+- (void)setCellModel:(id<CellModelBasicProtocol>)object {
     [super setObject:object];
     if ([object isKindOfClass:[ZQEmptyCellItem class]]) {
         ZQEmptyCellItem *item = (ZQEmptyCellItem *)object;
@@ -91,7 +103,7 @@ static const CGFloat DefaultCellHeight = 44.0f;
     item.cellHeight = @(height);
     item.bgColor = color;
     item.titleStr = titleStr;
-    item.contentStr = titleStr;
+    item.contentStr = contentStr;
     item.cellClass = [ZQDefaultCell class];
     return item;
 }
@@ -100,15 +112,16 @@ static const CGFloat DefaultCellHeight = 44.0f;
 
 @implementation ZQDefaultCell
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    self = [super initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.accessoryType = UITableViewCellAccessoryNone;
+        self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         self.selectionStyle = UITableViewCellSelectionStyleNone;
+        self.separatorInset = UIEdgeInsetsMake(0,16,0,16);
     }
     return self;
 }
 
-- (void)setObject:(id<CellModelBasicProtocol>)object {
+- (void)setCellModel:(id<CellModelBasicProtocol>)object {
     [super setObject:object];
     if ([object isKindOfClass:[ZQDefaultCellItem class]]) {
         ZQDefaultCellItem *item = (ZQDefaultCellItem *)object;

@@ -32,7 +32,7 @@
         _tableView                      = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
         _tableView.backgroundColor      = self.view.backgroundColor;
         _tableView.backgroundView       = nil;
-        _tableView.separatorStyle       = UITableViewCellSeparatorStyleNone;
+//        _tableView.separatorStyle       = UITableViewCellSeparatorStyleNone;
         _tableView.dataSource           = self.tableViewAdaptor;
         _tableView.delegate             = self.tableViewAdaptor;
         if (@available(iOS 11.0, *)) {
@@ -58,5 +58,23 @@
     return _tableViewAdaptor;
 }
 
+- (void)refreshReload:(ZQTableViewRefreshType)pullType {
+    
+}
 
+@end
+
+
+@implementation UITableView (registerExtern)
+- (void)registerNibsWithReuseIds:(NSArray<NSString*> *)arr {
+    [arr enumerateObjectsUsingBlock:^(NSString*  _Nonnull reuseID, NSUInteger idx, BOOL * _Nonnull stop) {
+        [self registerNib:[UINib nibWithNibName:reuseID bundle:nil] forCellReuseIdentifier:reuseID];
+    }];
+}
+
+- (void)registerClassesWithReuseIds:(NSArray<NSString*> *)arr {
+    [arr enumerateObjectsUsingBlock:^(NSString*  _Nonnull reuseID, NSUInteger idx, BOOL * _Nonnull stop) {
+        [self registerClass:NSClassFromString(reuseID) forCellReuseIdentifier:reuseID];
+    }];
+}
 @end

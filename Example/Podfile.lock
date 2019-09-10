@@ -31,7 +31,7 @@ DEPENDENCIES:
   - ZQFoundation (from `../`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://cdn.cocoapods.org/:
     - MJRefresh
     - YYModel
 
@@ -44,6 +44,6 @@ SPEC CHECKSUMS:
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
   ZQFoundation: d2485e9e193f0fa3ce4a9d106272324aec67abb4
 
-PODFILE CHECKSUM: 58303efb248cf789080b448b9ad503a29de7fa56
+PODFILE CHECKSUM: 96f408e9f7f53086aac8d6be5309bbc53d380140
 
 COCOAPODS: 1.7.4

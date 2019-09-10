@@ -6,8 +6,9 @@
 //  Copyright (c) 2018 macro. All rights reserved.
 //
 
+#import "BaseTableViewController.h"
 @import UIKit;
 
-@interface ZQViewController : UIViewController
+@interface ZQViewController : BaseTableViewController
 
 @end

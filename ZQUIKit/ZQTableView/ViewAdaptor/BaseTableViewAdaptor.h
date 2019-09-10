@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MJRefresh.h"
 #import "BaseModel.h"
 
 typedef NS_ENUM(NSInteger, ZQTableViewRefreshType){
@@ -47,8 +48,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BaseTableViewAdaptor : NSObject <UITableViewDelegate, UITableViewDataSource>
 
+@property (nonatomic, strong) MJRefreshNormalHeader *mjHeader;//mj下拉刷新控件
+@property (nonatomic, strong) MJRefreshBackNormalFooter *mjFooter;//mj上拉加载
 @property (nonatomic,   weak) id<BaseTableViewAdaptorDelegate> delegate;
 @property (nonatomic,   weak) UITableView *tableView;
+
 //数据源
 @property (nonatomic, strong) NSMutableArray *items;
 //是否开启下拉刷新
