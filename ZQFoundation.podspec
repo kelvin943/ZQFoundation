@@ -30,21 +30,19 @@ Pod::Spec.new do |s|
       ss.subspec 'Category' do |si|
           si.source_files ='ZQCommon/Category/**/*.{h,m}'
       end
-      
-      ss.subspec 'Control' do |control|
-          control.source_files ='ZQCommon/Control/**/*.{h,m}'
-      end
-      
-      ss.subspec 'NavBar' do |navbar|
-          navbar.source_files ='ZQCommon/NavBar/**/*.{h,m}'
-      end
-      
       ss.subspec 'Macro' do |macro|
         macro.source_files ='ZQCommon/Macro/**/*.{h,m}'
       end
   end
   
   s.subspec 'ZQUIKit' do |ss|
+      ss.source_files = 'ZQUIKit/*.h'
+      ss.subspec 'Category' do |category|
+        category.source_files ='ZQUIKit/Category/**/*.{h,m}'
+      end
+      ss.subspec 'ZQCustomizeBar' do |navbar|
+        navbar.source_files ='ZQUIKit/ZQCustomizeBar/**/*.{h,m}'
+      end
       ss.subspec 'ZQBaseModel' do |baseModel|
          baseModel.source_files = 'ZQUIKit/ZQBaseModel/**/*.{h,m}'
          baseModel.dependency 'YYModel','1.0.4'
@@ -60,7 +58,6 @@ Pod::Spec.new do |s|
          baseTableview.dependency 'ZQFoundation/ZQUIKit/ZQBaseVC'
          baseTableview.dependency 'ZQFoundation/ZQUIKit/ZQBaseModel'
          baseTableview.dependency 'MJRefresh',  '3.2.0'
-        
       end
   end
   

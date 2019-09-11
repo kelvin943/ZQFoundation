@@ -6,22 +6,22 @@ PODS:
     - ZQFoundation/ZQUIKit (= 0.1.1)
   - ZQFoundation/ZQCommon (0.1.1):
     - ZQFoundation/ZQCommon/Category (= 0.1.1)
-    - ZQFoundation/ZQCommon/Control (= 0.1.1)
     - ZQFoundation/ZQCommon/Macro (= 0.1.1)
-    - ZQFoundation/ZQCommon/NavBar (= 0.1.1)
   - ZQFoundation/ZQCommon/Category (0.1.1)
-  - ZQFoundation/ZQCommon/Control (0.1.1)
   - ZQFoundation/ZQCommon/Macro (0.1.1)
-  - ZQFoundation/ZQCommon/NavBar (0.1.1)
   - ZQFoundation/ZQUIKit (0.1.1):
+    - ZQFoundation/ZQUIKit/Category (= 0.1.1)
     - ZQFoundation/ZQUIKit/ZQBaseModel (= 0.1.1)
     - ZQFoundation/ZQUIKit/ZQBaseVC (= 0.1.1)
     - ZQFoundation/ZQUIKit/ZQBaseViewModel (= 0.1.1)
+    - ZQFoundation/ZQUIKit/ZQCustomizeBar (= 0.1.1)
     - ZQFoundation/ZQUIKit/ZQTableView (= 0.1.1)
+  - ZQFoundation/ZQUIKit/Category (0.1.1)
   - ZQFoundation/ZQUIKit/ZQBaseModel (0.1.1):
     - YYModel (= 1.0.4)
   - ZQFoundation/ZQUIKit/ZQBaseVC (0.1.1)
   - ZQFoundation/ZQUIKit/ZQBaseViewModel (0.1.1)
+  - ZQFoundation/ZQUIKit/ZQCustomizeBar (0.1.1)
   - ZQFoundation/ZQUIKit/ZQTableView (0.1.1):
     - MJRefresh (= 3.2.0)
     - ZQFoundation/ZQUIKit/ZQBaseModel
@@ -42,7 +42,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
-  ZQFoundation: d2485e9e193f0fa3ce4a9d106272324aec67abb4
+  ZQFoundation: 0362b472b6c63bb5db9253322ed21085a39cc1ee
 
 PODFILE CHECKSUM: da75d1a1a99126ad2e591b1cbc2f9c29049e36be
 
