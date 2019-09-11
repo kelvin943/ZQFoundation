@@ -15,3 +15,12 @@
 @interface NSMutableString (ZQSafe)
 
 @end
+
+
+
+@interface NSDateFormatter (Static)
+@end
+@interface NSString (NSDate)
+/* 从日期生成字符串 */
++ (NSString *)stringFromDate:(NSDate *)date;
+@end

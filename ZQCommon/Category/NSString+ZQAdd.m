@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Macro. All rights reserved.
 //
 
-#import "NSString+ZQSafe.h"
+#import "NSString+ZQAdd.h"
 #import "NSObject+ZQAdd.h"
 
 #define SafeStringMethod(methodName)                   \
@@ -123,4 +123,26 @@ SafeStringMethod(zqsafe_substringToIndex)
 SafeStringMethod(zqsafe_substringFromIndex)
 SafeStringMethod1(zqsafe_substringWithRange)
 
+@end
+
+
+
+@implementation NSDateFormatter (Static)
++ (NSDateFormatter *)staticDateFormatter {
+    static dispatch_once_t onceToken;
+    static NSDateFormatter *staticDateFormatter;
+    dispatch_once(&onceToken, ^{
+        staticDateFormatter = [[NSDateFormatter alloc] init];
+    });
+    return staticDateFormatter;
+}
+@end
+
+@implementation NSString (NSDate)
++ (NSString *)stringFromDate:(NSDate *)date {
+    NSDateFormatter *formatter = [NSDateFormatter staticDateFormatter];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    NSString *retStr = [formatter stringFromDate:date];
+    return retStr;
+}
 @end

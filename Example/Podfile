@@ -1,6 +1,6 @@
 #source 'git@gitee.com:Kelvin943/macro-spec.git'
-source 'https://cdn.cocoapods.org/'
-#source 'https://github.com/CocoaPods/Specs.git'
+#source 'https://cdn.cocoapods.org/'
+source 'https://github.com/CocoaPods/Specs.git'
 install! 'cocoapods', :generate_multiple_pod_projects => true
 #use_frameworks!
 

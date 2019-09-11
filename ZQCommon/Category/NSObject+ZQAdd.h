@@ -52,3 +52,9 @@ typedef IMP* IMPPointer;
 + (void)exchangeInstanceMethod:(SEL)originalSelector withMethod:(SEL)swizzledSelector andClass:(Class) target;
 + (void)exchangeClassMethod:(SEL)originalSelector withMethod:(SEL)swizzledSelector andClass:(Class) target;
 @end
+
+
+@interface NSObject (Method)
+- (BOOL)isNilOrNull;
+- (id)performSelector:(SEL)aSelector withObjects:(NSArray *)objects;
+@end

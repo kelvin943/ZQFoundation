@@ -12,13 +12,18 @@
 
 #import "ZQMacros.h"
 #import "ZQSingleton.h"
+
+
 #import "NSObject+ZQAdd.h"
-#import "NSString+ZQSafe.h"
+#import "NSString+ZQAdd.h"
 #import "NSTimer+ZQBlock.h"
+#import "UIColor+ZQAdd.h"
+#import "UIImage+ZQAdd.h"
+#import "NSArray+ZQAdd.h"
+#import "NSDictionary+ZQAdd.h"
 
 #import "UIButton+ZQAdd.h"
 #import "UIView+ZQExten.h"
-#import "UIColor+ZQHex"
 
 #import "UIViewController+ZQCustomizeNavBar.h"
 

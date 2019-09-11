@@ -5,9 +5,14 @@
 //  Created by 张泉(平安好房技术中心智慧城市房产云研发团队前端研发组) on 2019/9/10.
 //
 
-#import "UIColor+ZQHex.h"
+#import "UIColor+ZQAdd.h"
 
 @implementation UIColor (ZQHex)
+
++ (UIColor *)randomColor {
+    return [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0];
+}
+
 
 + (UIColor *)colorWithHex:(NSUInteger)hex {
     CGFloat red, green, blue, alpha;
@@ -29,5 +34,7 @@
     blue    = ((CGFloat)((hex >> 0)  & 0xFF)) / ((CGFloat)0xFF);
     return [UIColor colorWithRed: red green:green blue:blue alpha:alpha];
 }
+
+
 
 @end
