@@ -6,11 +6,10 @@ inhibit_all_warnings!
 install! 'cocoapods',
 :generate_multiple_pod_projects => true,
 :incremental_installation => true
-
 use_frameworks!
 
 target 'ZQFoundation_Example' do
-#    pod 'ZQFoundation'
+#    pod 'ZQFoundation', :git => 'git@github.com:kelvin943/ZQFoundation.git', :branch => 'develop'
     pod 'ZQFoundation', :path => '../'
   target 'ZQFoundation_Tests' do
     inherit! :search_paths
