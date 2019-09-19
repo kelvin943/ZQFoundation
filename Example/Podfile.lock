@@ -28,20 +28,22 @@ PODS:
     - ZQFoundation/ZQUIKit/ZQBaseVC
 
 DEPENDENCIES:
-  - ZQFoundation
+  - ZQFoundation (from `../`)
 
 SPEC REPOS:
-  "git@gitee.com:Kelvin943/macro-spec.git":
-    - ZQFoundation
   https://cdn.cocoapods.org/:
     - MJRefresh
     - YYModel
 
+EXTERNAL SOURCES:
+  ZQFoundation:
+    :path: "../"
+
 SPEC CHECKSUMS:
   MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
-  ZQFoundation: a0ab1d4156e6279efefc7675cd0cdede8e165602
+  ZQFoundation: 0362b472b6c63bb5db9253322ed21085a39cc1ee
 
-PODFILE CHECKSUM: 6073016db75bd14b8e470aec0bd7b9bd4cf4fdce
+PODFILE CHECKSUM: e60da3e0449d91c26892d9ff439d29ffc38d4e10
 
 COCOAPODS: 1.7.4

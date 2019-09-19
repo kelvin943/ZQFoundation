@@ -5,8 +5,12 @@
 //  Created by macro on 2019/9/6.
 //
 
-#import <Foundation/Foundation.h>
+#if __has_include(<MJRefresh/MJRefresh.h>)
+#import <MJRefresh/MJRefresh.h>
+#else
 #import "MJRefresh.h"
+#endif
+#import <Foundation/Foundation.h>
 #import "BaseModel.h"
 
 typedef NS_ENUM(NSInteger, ZQTableViewRefreshType){

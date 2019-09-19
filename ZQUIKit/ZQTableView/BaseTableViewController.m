@@ -5,9 +5,14 @@
 //  Created by macro on 2019/9/6.
 //
 
+#if __has_include(<MJRefresh/MJRefresh.h>)
+#import <MJRefresh/MJRefresh.h>
+#else
+#import "MJRefresh.h"
+#endif
+
 #import "BaseTableViewController.h"
 #import "BaseViewController.h"
-#import "MJRefresh.h"
 
 
 @interface BaseTableViewController ()

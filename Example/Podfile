@@ -1,15 +1,17 @@
 source 'git@gitee.com:Kelvin943/macro-spec.git'
 source 'https://cdn.cocoapods.org/'
 #source 'https://github.com/CocoaPods/Specs.git'
+
 inhibit_all_warnings!
 install! 'cocoapods',
 :generate_multiple_pod_projects => true,
 :incremental_installation => true
-#use_frameworks!
+
+use_frameworks!
 
 target 'ZQFoundation_Example' do
-    pod 'ZQFoundation'
-#    pod 'ZQFoundation', :path => '../'
+#    pod 'ZQFoundation'
+    pod 'ZQFoundation', :path => '../'
   target 'ZQFoundation_Tests' do
     inherit! :search_paths
   end

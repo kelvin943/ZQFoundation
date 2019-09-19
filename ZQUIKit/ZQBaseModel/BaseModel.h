@@ -5,8 +5,13 @@
 //  Created by macro on 2019/9/6.
 //
 
-#import <Foundation/Foundation.h>
+#if __has_include(<YYModel/YYModel.h>)
+#import <YYModel/YYModel.h>
+#else
 #import "YYModel.h"
+#endif
+
+#import <Foundation/Foundation.h>
 
 @protocol  CellModelBasicProtocol <NSObject>
 @property (nonatomic, assign) Class cellClass;
