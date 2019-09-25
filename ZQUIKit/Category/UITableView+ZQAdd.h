@@ -17,7 +17,7 @@
 @interface UICollectionView (ZQEmptyData)
 
 @property (nonatomic, assign) BOOL firstReload;
-@property (nonatomic, strong) UIView *placeholderView;
-@property (nonatomic, copy) void(^reloadBlock)(void);
+@property (nonatomic, assign) BOOL isShowEmpty;        //reload 时是否展示空数据占位图
+@property (nonatomic,   copy) void(^reloadBlock)(void);
 
 @end
