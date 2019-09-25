@@ -145,7 +145,7 @@ static void __exchange_method(Class class, SEL originalSelector, SEL swizzlingSe
     objc_setAssociatedObject(self, @selector(zq_CustomNavBar), barHeadView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 - (ZQCustomNavBar*)zq_CustomNavBar {
-    if(!objc_getAssociatedObject(self, _cmd)){
+    if(!objc_getAssociatedObject(self, _cmd)) {
         ZQCustomNavBar * barHeadView = [[ZQCustomNavBar alloc] initWithFrame:CGRectZero];
         objc_setAssociatedObject(self, _cmd, barHeadView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         return barHeadView;
