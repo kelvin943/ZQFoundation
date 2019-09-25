@@ -137,6 +137,8 @@
     if(!objc_getAssociatedObject(self, _cmd)) {
         CGRect emptyFrame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
         ZQExceptionView * emptyView = [[ZQExceptionView alloc] initWithFrame:emptyFrame];
+        [emptyView setImage:@"tableview_empty_data"];
+        [emptyView setText:@"数据为空，轻触屏幕重新加载"];
         objc_setAssociatedObject(self, _cmd, emptyView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         //空数据点击事件
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(emptyViewTap:)];
