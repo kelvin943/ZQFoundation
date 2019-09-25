@@ -10,6 +10,7 @@
 #import "BaseTableViewCell.h"
 #import "YYClassInfo.h"
 
+
 @interface ZQViewController ()
 
 @end
@@ -23,6 +24,8 @@
     self.tableViewAdaptor.loadMoreEnable = YES;
     
     self.tableView.tableFooterView = [[UIView alloc] init];
+    
+    self.tableView.isShowEmpty = YES;
     [self construstData];
     
 	// Do any additional setup after loading the view, typically from a nib.

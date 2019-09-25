@@ -7,6 +7,7 @@
 //
 
 #import "BaseTableViewController.h"
+#import "UITableView+ZQAdd.h"
 @import UIKit;
 
 @interface ZQViewController : BaseTableViewController
