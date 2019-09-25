@@ -8,14 +8,14 @@
 #import "UITableView+ZQAdd.h"
 #import "UIViewController+ZQAdd.h"
 #import <objc/runtime.h>
-#import "ZQMacros.h"
+//#import "ZQMacros.h"
 
 
 //ZQCATEGORY_DUMMY_CLASS(UITableView_ZQEmptyData)
 
-@implementation UITableView_ZQEmptyData
-
-@end
+//@implementation UITableView_ZQEmptyData
+//
+//@end
 
 @interface UITableView ()
 @property (nonatomic, strong) ZQExceptionView *placeholderView; //没数据时的展位图
@@ -33,18 +33,15 @@
 }
 
 - (void)zq_reloadData{
-    if (!self.firstReload) {
-        if (self.isShowEmpty) {// 如果通过 tableview 的 datesource 来判断可能存在误判，因为 datesource 可能加入一些非业务数据来渲染界面
-            //通过业务方设置此属性来决定是否显示空数据占位图
-            if (!self.placeholderView.superview) {
-                [self addSubview:self.placeholderView];
-            }
-            self.placeholderView.hidden = NO;
-        }else {
-            self.placeholderView.hidden = YES;
+    if (self.isShowEmpty) {// 如果通过 tableview 的 datesource 来判断可能存在误判，因为 datesource 可能加入一些非业务数据来渲染界面
+        //通过业务方设置此属性来决定是否显示空数据占位图
+        if (!self.placeholderView.superview) {
+            [self addSubview:self.placeholderView];
         }
+        self.placeholderView.hidden = NO;
+    }else {
+        self.placeholderView.hidden = YES;
     }
-    self.firstReload = NO;
     [self zq_reloadData];
 }
 
