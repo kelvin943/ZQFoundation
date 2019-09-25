@@ -212,4 +212,20 @@
                             && [[[UIDevice currentDevice] systemVersion] doubleValue]<11.0)
     #define IOS_11          ([[[UIDevice currentDevice] systemVersion] doubleValue]>=11.0 \
                             && [[[UIDevice currentDevice] systemVersion] doubleValue]<12.0)
+
+
+
+
+/**
+Add this macro before each category implementation, so we don't have to use
+-all_load or -force_load to load object files from static libraries that only
+contain categories and no classes.
+More info: http://developer.apple.com/library/mac/#qa/qa2006/qa1490.html .
+*******************************************************************************/
+#ifndef ZQCATEGORY_DUMMY_CLASS
+#define ZQCATEGORY_DUMMY_CLASS(_name_) \
+@interface ZQCATEGORY_DUMMY_CLASS ## _name_ : NSObject @end \
+@implementation ZQCATEGORY_DUMMY_CLASS ## _name_ @end
+#endif
+
 #endif /* ZQMacros_h */
