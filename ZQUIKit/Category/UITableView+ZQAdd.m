@@ -22,12 +22,12 @@ ZQCATEGORY_DUMMY_CLASS(UITableView_ZQEmptyData)
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         Method originalMethod = class_getInstanceMethod(self, @selector(reloadData));
-        Method newMethod = class_getInstanceMethod(self, @selector(zq_reloadData));
+        Method newMethod = class_getInstanceMethod(self, @selector(zq_tableview_reloadData));
         method_exchangeImplementations(originalMethod, newMethod);
     });
 }
 
-- (void)zq_reloadData{
+- (void)zq_tableview_reloadData{
     if (self.isShowEmpty) {// 如果通过 tableview 的 datesource 来判断可能存在误判，因为 datesource 可能加入一些非业务数据来渲染界面
         //通过业务方设置此属性来决定是否显示空数据占位图
         if (!self.placeholderView.superview) {
@@ -103,12 +103,12 @@ ZQCATEGORY_DUMMY_CLASS(UITableView_ZQEmptyData)
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         Method originalMethod = class_getInstanceMethod(self, @selector(reloadData));
-        Method newMethod = class_getInstanceMethod(self, @selector(zq_reloadData));
+        Method newMethod = class_getInstanceMethod(self, @selector(zq_collectionView_reloadData));
         method_exchangeImplementations(originalMethod, newMethod);
     });
 }
 
-- (void)zq_reloadData{
+- (void)zq_collectionView_reloadData{
     if (!self.firstReload) {
         if (self.isShowEmpty) {// 如果通过 tableview 的 datesource 来判断可能存在误判，因为 datesource 可能加入一些非业务数据来渲染界面
             //通过业务方设置此属性来决定是否显示空数据占位图
