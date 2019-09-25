@@ -14,6 +14,7 @@
 
 #import <ZQFoundation/BaseModel.h>
 #import <ZQFoundation/BaseViewModel.h>
+#import <ZQFoundation/BaseTabBarVC.h>
 #import <ZQFoundation/BaseViewController.h>
 #import <ZQFoundation/BaseTableViewController.h>
 #import <ZQFoundation/BaseTableViewCell.h>
@@ -27,6 +28,7 @@
 
 #import "BaseModel.h"
 #import "BaseViewModel.h"
+#import "BaseTabBarVC.h"
 #import "BaseViewController.h"
 #import "BaseTableViewController.h"
 #import "BaseTableViewCell.h"

@@ -43,6 +43,9 @@ Pod::Spec.new do |s|
       ss.subspec 'ZQCustomizeBar' do |navbar|
         navbar.source_files ='ZQUIKit/ZQCustomizeBar/**/*.{h,m}'
       end
+      ss.subspec 'ZQBaseTabBarVC' do |baseTabBar|
+        baseTabBar.source_files = 'ZQUIKit/ZQBaseTabBarVC/**/*.{h,m}'
+     end
       ss.subspec 'ZQBaseModel' do |baseModel|
          baseModel.source_files = 'ZQUIKit/ZQBaseModel/**/*.{h,m}'
          baseModel.dependency 'YYModel','1.0.4'
@@ -60,19 +63,5 @@ Pod::Spec.new do |s|
          baseTableview.dependency 'MJRefresh',  '3.2.0'
       end
   end
-  
-#  # 基本分类 宏定义
-#  s.subspec 'ZQUIKit' do |ss|
-#      ss.source_files = 'ZQUIKit/*.h'
-#      ss.subspec 'NavBar' do |navbar|
-#          navbar.source_files ='ZQCommon/nav/**/*.{h,m,c}'
-#      end
-#
-#      ss.subspec 'Category' do |category|
-#          category.source_files ='ZQCommon/Category/**/*.{h,m,c}'
-#      end
-#  end
-
-  
   
 end
