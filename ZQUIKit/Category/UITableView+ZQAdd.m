@@ -8,14 +8,9 @@
 #import "UITableView+ZQAdd.h"
 #import "UIViewController+ZQAdd.h"
 #import <objc/runtime.h>
-//#import "ZQMacros.h"
+#import "ZQMacros.h"
 
-
-//ZQCATEGORY_DUMMY_CLASS(UITableView_ZQEmptyData)
-
-//@implementation UITableView_ZQEmptyData
-//
-//@end
+ZQCATEGORY_DUMMY_CLASS(UITableView_ZQEmptyData)
 
 @interface UITableView ()
 @property (nonatomic, strong) ZQExceptionView *placeholderView; //没数据时的展位图
