@@ -45,7 +45,7 @@ Pod::Spec.new do |s|
       end
       ss.subspec 'ZQBaseTabBarVC' do |baseTabBar|
         baseTabBar.source_files = 'ZQUIKit/ZQBaseTabBarVC/**/*.{h,m}'
-     end
+      end
       ss.subspec 'ZQBaseModel' do |baseModel|
          baseModel.source_files = 'ZQUIKit/ZQBaseModel/**/*.{h,m}'
          baseModel.dependency 'YYModel','1.0.4'

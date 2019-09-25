@@ -7,6 +7,7 @@
 //
 
 #import "BaseTabBarVC.h"
+#import <objc/runtime.h>
 
 #pragma mark - UITabBar (Category)
 @implementation UITabBar (Category)
@@ -41,7 +42,7 @@
     
     //新建小红点
     UIImageView *badgeView = [[UIImageView alloc] init];
-    badgeView.backgroundColor = [UIColor colorWithHex:0xff6262];
+    badgeView.backgroundColor = [UIColor redColor];
     badgeView.tag = 888 + index;
     badgeView.layer.cornerRadius = 4;
     badgeView.layer.masksToBounds = YES;
