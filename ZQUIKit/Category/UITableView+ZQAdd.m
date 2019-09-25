@@ -37,7 +37,7 @@ ZQCATEGORY_DUMMY_CLASS(UITableView_ZQEmptyData)
     }else {
         self.placeholderView.hidden = YES;
     }
-    [self zq_reloadData];
+    [self zq_tableview_reloadData];
 }
 
 
@@ -121,7 +121,7 @@ ZQCATEGORY_DUMMY_CLASS(UITableView_ZQEmptyData)
         }
     }
     self.firstReload = NO;
-    [self zq_reloadData];
+    [self zq_collectionView_reloadData];
 }
 
 
