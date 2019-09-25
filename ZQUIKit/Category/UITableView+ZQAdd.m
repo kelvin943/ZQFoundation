@@ -11,7 +11,7 @@
 
 
 
-@interface UITableView (ZQPrivate)
+@interface UITableView ()
 @property (nonatomic, strong) ZQExceptionView *placeholderView; //没数据时的展位图
 @end
 
@@ -96,7 +96,7 @@
 @end
 
 
-@interface UICollectionView (ZQPrivate)
+@interface UICollectionView ()
 @property (nonatomic, strong) ZQExceptionView *placeholderView; //没数据时的展位图
 @end
 @implementation UICollectionView (ZQEmptyData)
