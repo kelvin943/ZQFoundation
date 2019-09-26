@@ -21,7 +21,9 @@ static const CGFloat DefaultCellHeight = 44.0f;
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-        self.separatorInset = UIEdgeInsetsMake(0,viewWidth,0,0);
+        //设置 right 而不设置 left 的原因是设置 left 会影响系统默认cell (ZQDefaultCell) 的右侧布局
+        //这里猜测 系统cell 的detailTextLabel布局与此属性有关
+        self.separatorInset = UIEdgeInsetsMake(0,0,0,viewWidth);
         self.accessoryType = UITableViewCellAccessoryNone;
     }
     return self;
@@ -129,8 +131,8 @@ static const CGFloat DefaultCellHeight = 44.0f;
         self.contentView.backgroundColor = item.bgColor;
         self.textLabel.text = item.titleStr;
         self.detailTextLabel.text = item.contentStr;
-        if (item.separatorInset.left >0) {
-            //如果设置过分割线的间距就显示，默认由父视图设置的 UIEdgeInsetsMake(0,viewWidth,0,0) 不展示
+        if (item.separatorInset.left >0 || item.separatorInset.right > 0) {
+            //如果设置过分割线的间距就显示，默认由父视图设置的 UIEdgeInsetsMake(0,viewWidth,0,0) 不展示.git
             self.separatorInset              = item.separatorInset;
         }
     }
@@ -194,7 +196,7 @@ static const CGFloat DefaultCellHeight = 44.0f;
         self.contentView.backgroundColor = item.bgColor;
         self.titleLabel.text             = item.titleStr;
         self.subTitleLabel.text          = item.subTitleStr;
-        if (item.separatorInset.left >0) {
+        if (item.separatorInset.left >0 || item.separatorInset.right > 0) {
             //如果设置过分割线的间距就显示，默认由父视图设置的 UIEdgeInsetsMake(0,viewWidth,0,0) 不展示
             self.separatorInset              = item.separatorInset;
         }
