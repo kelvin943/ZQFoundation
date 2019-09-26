@@ -7,6 +7,9 @@
 //
 
 #import "UIButton+ZQAdd.h"
+#import "ZQMacros.h"
+
+ZQCATEGORY_DUMMY_CLASS(UIButton_ZQAdd)
 
 #pragma mark - Action
 

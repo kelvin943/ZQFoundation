@@ -8,7 +8,9 @@
 
 #import "UIView+ZQExten.h"
 #import <objc/runtime.h>
+#import "ZQMacros.h"
 
+ZQCATEGORY_DUMMY_CLASS(UIView_ZQAdd)
 #pragma mark - View 布局
 @implementation UIView (Layout)
 

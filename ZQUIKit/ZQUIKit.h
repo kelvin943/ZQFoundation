@@ -8,11 +8,7 @@
 
 #if __has_include(<ZQFoundation/ZQUIKit.h>)
 
-#import <ZQFoundation/UIButton+ZQAdd.h>
-#import <ZQFoundation/UIView+ZQExten.h>
-#import <ZQFoundation/UIViewController+ZQCustomizeNavBar.h>
-#import <ZQFoundation/UIViewController+ZQAdd.h>
-#import <ZQFoundation/UITableView+ZQAdd.h>
+
 
 
 #import <ZQFoundation/BaseModel.h>
@@ -22,14 +18,9 @@
 #import <ZQFoundation/BaseTableViewController.h>
 #import <ZQFoundation/BaseTableViewCell.h>
 #import <ZQFoundation/BaseTableViewAdaptor.h>
+#import <ZQFoundation/UIViewController+ZQCustomizeNavBar.h>
 
 #else
-
-#import "UIButton+ZQAdd.h"
-#import "UIView+ZQExten.h"
-#import "UIViewController+ZQCustomizeNavBar.h"
-#import "UIViewController+ZQAdd.h"
-#import "UITableView+ZQAdd.h"
 
 #import "BaseModel.h"
 #import "BaseViewModel.h"
@@ -38,6 +29,7 @@
 #import "BaseTableViewController.h"
 #import "BaseTableViewCell.h"
 #import "BaseTableViewAdaptor.h"
+#import "UIViewController+ZQCustomizeNavBar.h"
 
 
 #endif

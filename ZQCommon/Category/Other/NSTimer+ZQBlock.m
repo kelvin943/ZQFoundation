@@ -7,6 +7,9 @@
 //
 
 #import "NSTimer+ZQBlock.h"
+#import "ZQMacros.h"
+ZQCATEGORY_DUMMY_CLASS(NSTimer_ZQAdd)
+
 
 @implementation NSTimer (ZQBlock)
 

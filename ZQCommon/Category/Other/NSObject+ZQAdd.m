@@ -7,6 +7,7 @@
 //
 
 #import "NSObject+ZQAdd.h"
+#import "ZQMacros.h"
 
 
 //交换类的实例方法参数 Class 请传实例对象的类: self / [self class] /
@@ -69,6 +70,7 @@ BOOL class_swizzleMethodAndStore(Class class, SEL original, IMP replacement, IMP
 
 
 
+ZQCATEGORY_DUMMY_CLASS(NSObject_ZQAdd)
 
 @implementation NSObject (ZQAdd)
 

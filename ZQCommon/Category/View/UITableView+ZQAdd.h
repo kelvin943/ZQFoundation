@@ -7,10 +7,6 @@
 
 #import <UIKit/UIKit.h>
 
-//@interface UITableView_ZQEmptyData: NSObject
-//
-//@end
-
 @interface UITableView (ZQEmptyData)
 @property (nonatomic, assign) BOOL firstReload;        //是否第一次加载
 @property (nonatomic, assign) BOOL isShowEmpty;        //reload 时是否展示空数据占位图

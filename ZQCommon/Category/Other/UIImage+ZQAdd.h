@@ -12,13 +12,8 @@
  e.g:
   get iconfont use:  IconFont(@"fontNmae",size)
   get image from defaul iconfont: ImageWithDefaultIconfont(_iconStr_,_size_,_color_)
- 
- 
- 
- 
- 
- */
 
+ */
 
 #define IconFont(_name_,size) [UIFont fontWithName:_name_ size:size]
 #define ImageWithIconfont(_fontName_,_iconStr_,_size_,_color_)  \

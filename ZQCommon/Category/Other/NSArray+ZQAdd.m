@@ -7,6 +7,9 @@
 
 #import "NSArray+ZQAdd.h"
 
+#import "ZQMacros.h"
+ZQCATEGORY_DUMMY_CLASS(NSArray_ZQAdd)
+
 @implementation NSArray (ZQAdd)
 
 @end

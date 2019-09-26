@@ -9,6 +9,10 @@
 #import "NSString+ZQAdd.h"
 #import "NSObject+ZQAdd.h"
 
+#import "ZQMacros.h"
+ZQCATEGORY_DUMMY_CLASS(NSString_ZQAdd)
+
+
 #define SafeStringMethod(methodName)                   \
 - (NSString *)methodName:(NSUInteger)index {           \
     if (index > self.length) return nil;               \

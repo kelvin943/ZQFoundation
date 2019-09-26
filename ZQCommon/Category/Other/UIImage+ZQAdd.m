@@ -6,6 +6,10 @@
 //
 
 #import "UIImage+ZQAdd.h"
+#import "ZQMacros.h"
+
+ZQCATEGORY_DUMMY_CLASS(UIImage_ZQAdd)
+
 
 @implementation UIImage (IconFont)
 //使用默认的iconfont

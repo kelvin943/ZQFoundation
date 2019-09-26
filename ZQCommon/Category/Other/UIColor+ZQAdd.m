@@ -6,7 +6,9 @@
 //
 
 #import "UIColor+ZQAdd.h"
+#import "ZQMacros.h"
 
+ZQCATEGORY_DUMMY_CLASS(UIColor_ZQAdd)
 @implementation UIColor (ZQHex)
 
 + (UIColor *)randomColor {

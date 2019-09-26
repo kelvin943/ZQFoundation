@@ -7,6 +7,10 @@
 
 #import "NSDictionary+ZQAdd.h"
 
+
+#import "ZQMacros.h"
+ZQCATEGORY_DUMMY_CLASS(NSDictionary_ZQAdd)
+
 @implementation NSDictionary (ZQSafe)
 
 - (NSString*)stringObjectForKey:(id)aKey {

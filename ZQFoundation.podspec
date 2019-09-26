@@ -29,8 +29,8 @@ Pod::Spec.new do |s|
   # 基本分类 宏定义
   s.subspec 'ZQCommon' do |ss|
       ss.source_files = 'ZQCommon/*.h'
-      ss.subspec 'Category' do |si|
-          si.source_files ='ZQCommon/Category/**/*.{h,m}'
+      ss.subspec 'Category' do |category|
+          category.source_files ='ZQCommon/Category/**/*.{h,m}'
       end
       ss.subspec 'Macro' do |macro|
         macro.source_files ='ZQCommon/Macro/**/*.{h,m}'
@@ -39,9 +39,6 @@ Pod::Spec.new do |s|
   
   s.subspec 'ZQUIKit' do |ss|
       ss.source_files = 'ZQUIKit/*.h'
-      ss.subspec 'Category' do |category|
-        category.source_files ='ZQUIKit/Category/**/*.{h,m}'
-      end
       ss.subspec 'ZQCustomizeBar' do |navbar|
         navbar.source_files ='ZQUIKit/ZQCustomizeBar/**/*.{h,m}'
       end
