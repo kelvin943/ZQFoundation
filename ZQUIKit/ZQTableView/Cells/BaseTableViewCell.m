@@ -189,7 +189,7 @@ static const CGFloat DefaultCellHeight = 44.0f;
     [super setObject:object];
     if ([object isKindOfClass:[ZQCustomDefaultCellItem class]]) {
         ZQCustomDefaultCellItem *item = (ZQCustomDefaultCellItem *)object;
-        self.contentView.backgroundColor = [UIColor redColor];
+        self.contentView.backgroundColor = item.bgColor;
         self.titleLabel.text             = item.titleStr;
         self.subTitleLabel.text          = item.subTitleStr;
         self.separatorInset              = item.separatorInset;
