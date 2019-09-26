@@ -143,8 +143,9 @@ static const CGFloat DefaultCellHeight = 44.0f;
     item.cellHeight     = @(55);
     item.titleStr       = titleStr;
     item.subTitleStr    = subTitleStr;
-    item.bgColor    = [UIColor whiteColor];
-    item.cellClass = [ZQCustomDefaultCell class];
+    item.bgColor        = [UIColor whiteColor];
+    item.separatorInset = UIEdgeInsetsMake(0,16,0,0);
+    item.cellClass      = [ZQCustomDefaultCell class];
     return item;
 }
 @end
