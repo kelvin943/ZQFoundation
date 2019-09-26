@@ -24,6 +24,10 @@ ZQCATEGORY_DUMMY_CLASS(UITableView_ZQEmptyData)
         Method originalMethod = class_getInstanceMethod(self, @selector(reloadData));
         Method newMethod = class_getInstanceMethod(self, @selector(zq_tableview_reloadData));
         method_exchangeImplementations(originalMethod, newMethod);
+        
+        Method originalMethod = class_getInstanceMethod(self, @selector(layoutSubviews));
+        Method newMethod = class_getInstanceMethod(self, @selector(zq_tableview_layoutSubviews));
+        method_exchangeImplementations(originalMethod, newMethod);
     });
 }
 
@@ -41,6 +45,13 @@ ZQCATEGORY_DUMMY_CLASS(UITableView_ZQEmptyData)
 }
 
 
+- (void)zq_tableview_layoutSubviews {
+    [self zq_tableview_layoutSubviews];
+    CGRect frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
+    self.placeholderView.frame = frame ;
+}
+
+
 - (void)emptyViewTap:(id)sender {
     if (self.reloadBlock) {
         self.reloadBlock();
@@ -49,8 +60,7 @@ ZQCATEGORY_DUMMY_CLASS(UITableView_ZQEmptyData)
 #pragma mark - 类目添加的属性
 - (ZQExceptionView *)placeholderView {
     if(!objc_getAssociatedObject(self, _cmd)) {
-        CGRect emptyFrame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
-        ZQExceptionView * emptyView = [[ZQExceptionView alloc] initWithFrame:emptyFrame];
+        ZQExceptionView * emptyView = [[ZQExceptionView alloc] initWithFrame:CGRectZero];
         [emptyView setImage:@"tableview_empty_data"];
         [emptyView setText:@"数据为空，轻触屏幕重新加载"];
         objc_setAssociatedObject(self, _cmd, emptyView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
