@@ -155,6 +155,7 @@ static const CGFloat DefaultCellHeight = 44.0f;
     if (self) {
         self.accessoryType = UITableViewCellAccessoryNone;
         self.selectionStyle = UITableViewCellSelectionStyleNone;
+        self.separatorInset = UIEdgeInsetsMake(0,16,0,0);
         [self setupContentView];
     }
     return self;
