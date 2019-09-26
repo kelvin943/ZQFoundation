@@ -34,6 +34,7 @@
 @property (nonatomic,  copy) NSString *titleStr;
 @property (nonatomic,  copy) NSString *contentStr;
 @property (nonatomic,strong) UIColor  *bgColor;
+@property (nonatomic,assign) UIEdgeInsets separatorInset;
 + (instancetype)cellWithTitleStr:(NSString *)titleStr content:(NSString*)contentStr;
 + (instancetype)cellWithTitleStr:(NSString *)titleStr content:(NSString*)contentStr bgColor:(UIColor*)color;
 + (instancetype)cellWithTitleStr:(NSString *)titleStr content:(NSString*)contentStr height:(CGFloat)height;

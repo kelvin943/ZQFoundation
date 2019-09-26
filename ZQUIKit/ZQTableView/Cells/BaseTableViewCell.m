@@ -118,7 +118,6 @@ static const CGFloat DefaultCellHeight = 44.0f;
     if (self) {
         self.accessoryType  = UITableViewCellAccessoryDisclosureIndicator;
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-        self.separatorInset = UIEdgeInsetsMake(0,16,0,0);
     }
     return self;
 }
@@ -130,6 +129,10 @@ static const CGFloat DefaultCellHeight = 44.0f;
         self.contentView.backgroundColor = item.bgColor;
         self.textLabel.text = item.titleStr;
         self.detailTextLabel.text = item.contentStr;
+        if (item.separatorInset.left >0) {
+            //如果设置过分割线的间距就显示，默认由父视图设置的 UIEdgeInsetsMake(0,viewWidth,0,0) 不展示
+            self.separatorInset              = item.separatorInset;
+        }
     }
 }
 
@@ -144,7 +147,6 @@ static const CGFloat DefaultCellHeight = 44.0f;
     item.titleStr       = titleStr;
     item.subTitleStr    = subTitleStr;
     item.bgColor        = [UIColor whiteColor];
-    item.separatorInset = UIEdgeInsetsMake(0,16,0,0);
     item.cellClass      = [ZQCustomDefaultCell class];
     return item;
 }
@@ -192,7 +194,10 @@ static const CGFloat DefaultCellHeight = 44.0f;
         self.contentView.backgroundColor = item.bgColor;
         self.titleLabel.text             = item.titleStr;
         self.subTitleLabel.text          = item.subTitleStr;
-        self.separatorInset              = item.separatorInset;
+        if (item.separatorInset.left >0) {
+            //如果设置过分割线的间距就显示，默认由父视图设置的 UIEdgeInsetsMake(0,viewWidth,0,0) 不展示
+            self.separatorInset              = item.separatorInset;
+        }
         self.flagImageView.image = item.flagImageIconStr.length > 0 ? [UIImage imageFromIconfontWithIconStr:item.flagImageIconStr size:20 color:[UIColor colorWithHex:0x999999]] : [UIImage imageNamed:@"right_arrow"];
 
     }
