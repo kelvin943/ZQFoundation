@@ -25,9 +25,9 @@ ZQCATEGORY_DUMMY_CLASS(UITableView_ZQEmptyData)
         Method newMethod = class_getInstanceMethod(self, @selector(zq_tableview_reloadData));
         method_exchangeImplementations(originalMethod, newMethod);
         
-        Method originalMethod = class_getInstanceMethod(self, @selector(layoutSubviews));
-        Method newMethod = class_getInstanceMethod(self, @selector(zq_tableview_layoutSubviews));
-        method_exchangeImplementations(originalMethod, newMethod);
+        Method originalMethod1 = class_getInstanceMethod(self, @selector(layoutSubviews));
+        Method newMethod1 = class_getInstanceMethod(self, @selector(zq_tableview_layoutSubviews));
+        method_exchangeImplementations(originalMethod1, newMethod1);
     });
 }
 
