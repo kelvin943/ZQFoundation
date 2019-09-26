@@ -116,9 +116,9 @@ static const CGFloat DefaultCellHeight = 44.0f;
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        self.accessoryType  = UITableViewCellAccessoryDisclosureIndicator;
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-        self.separatorInset = UIEdgeInsetsMake(0,16,0,16);
+        self.separatorInset = UIEdgeInsetsMake(0,16,0,0);
     }
     return self;
 }
@@ -151,11 +151,10 @@ static const CGFloat DefaultCellHeight = 44.0f;
 @end
 @implementation ZQCustomDefaultCell
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
-    self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.accessoryType = UITableViewCellAccessoryNone;
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-        self.separatorInset = UIEdgeInsetsMake(0,16,0,0);
         [self setupContentView];
     }
     return self;
@@ -167,18 +166,18 @@ static const CGFloat DefaultCellHeight = 44.0f;
 }
 
 - (void)layoutSubviews {
-    
+    [super layoutSubviews];
     CGFloat margin = 16;
     self.titleLabel.left = margin;
     self.titleLabel.top  = 18;
     self.titleLabel.width   = 100;
     self.titleLabel.height  = 20;
-    
+
     self.flagImageView.centerY = self.titleLabel.centerY;
     self.flagImageView.right   = viewWidth - 16;
     self.flagImageView.width   = 20;
     self.flagImageView.height  = 20;
-    
+
     self.subTitleLabel.centerY = self.flagImageView.centerY;
     self.subTitleLabel.right   = self.flagImageView.left -8;
     self.subTitleLabel.width = 100;
@@ -189,7 +188,7 @@ static const CGFloat DefaultCellHeight = 44.0f;
     [super setObject:object];
     if ([object isKindOfClass:[ZQCustomDefaultCellItem class]]) {
         ZQCustomDefaultCellItem *item = (ZQCustomDefaultCellItem *)object;
-        self.contentView.backgroundColor = item.bgColor;
+        self.contentView.backgroundColor = [UIColor redColor];
         self.titleLabel.text             = item.titleStr;
         self.subTitleLabel.text          = item.subTitleStr;
         self.separatorInset              = item.separatorInset;
