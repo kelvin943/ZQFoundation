@@ -188,7 +188,7 @@ static const CGFloat DefaultCellHeight = 44.0f;
         self.titleLabel.text             = item.titleStr;
         self.subTitleLabel.text          = item.subTitleStr;
         self.separatorInset              = item.separatorInset;
-        self.flagImageView = item.flagImageIconStr.length > 0 ? [UIImage imageFromIconfontWithIconStr:item.flagImageIconStr size:20 color:[UIColor colorWithHex:0x999999]] : [UIImage imageNamed:@"right_arrow"];
+        self.flagImageView.image = item.flagImageIconStr.length > 0 ? [UIImage imageFromIconfontWithIconStr:item.flagImageIconStr size:20 color:[UIColor colorWithHex:0x999999]] : [UIImage imageNamed:@"right_arrow"];
 
     }
 }
