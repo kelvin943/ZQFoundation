@@ -167,8 +167,10 @@ static const CGFloat DefaultCellHeight = 44.0f;
 }
 
 - (void)layoutSubviews {
-    self.titleLabel.left = 16;
-    self.titleLabel.centerY = self.contentView.centerY;
+    
+    CGFloat margin = 16;
+    self.titleLabel.left = margin;
+    self.titleLabel.top  = 18;
     self.titleLabel.width   = 100;
     self.titleLabel.height  = 20;
     
@@ -179,7 +181,7 @@ static const CGFloat DefaultCellHeight = 44.0f;
     
     self.subTitleLabel.centerY = self.flagImageView.centerY;
     self.subTitleLabel.right   = self.flagImageView.left -8;
-    self.subTitleLabel.height = 100;
+    self.subTitleLabel.width = 100;
     self.subTitleLabel.height = 20;
 }
 
