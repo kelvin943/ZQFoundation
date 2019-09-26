@@ -58,8 +58,10 @@ Pod::Spec.new do |s|
       end
       ss.subspec 'ZQTableView' do |baseTableview|
          baseTableview.source_files = 'ZQUIKit/ZQTableView/**/*.{h,m}'
+         #内部的依赖如果不懈，spec 远程检查会有语法错误
          baseTableview.dependency 'ZQFoundation/ZQUIKit/ZQBaseVC'
          baseTableview.dependency 'ZQFoundation/ZQUIKit/ZQBaseModel'
+         baseTableview.dependency 'ZQFoundation/ZQCommon/Category'
          baseTableview.dependency 'MJRefresh',  '3.2.0'
       end
       
