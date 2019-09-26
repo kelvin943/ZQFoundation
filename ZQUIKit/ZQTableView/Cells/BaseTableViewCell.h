@@ -28,7 +28,8 @@
 @interface ZQEmptyCell: BaseTableViewCell
 @end
 
-#pragma mark - default cell
+
+#pragma mark - system default cell
 @interface ZQDefaultCellItem : BaseModel
 @property (nonatomic,  copy) NSString *titleStr;
 @property (nonatomic,  copy) NSString *contentStr;
@@ -43,4 +44,26 @@
 @end
 @interface ZQDefaultCell : BaseTableViewCell
 @end
+
+
+#pragma mark - custom default cell
+@interface ZQCustomDefaultCellItem : BaseModel
+@property (nonatomic,  copy) NSString *titleStr;
+@property (nonatomic,  copy) NSString *subTitleStr;
+@property (nonatomic,  copy) NSString *flagImageIconStr;
+@property (nonatomic,strong) UIColor  *bgColor;
+@property (nonatomic,assign) UIEdgeInsets separatorInset;
+
++ (instancetype)cellWithTitleStr:(NSString *)titleStr subTitle:(NSString*)subTitleStr;
+
+@end
+
+@interface ZQCustomDefaultCell : BaseTableViewCell
+
+@property (nonatomic,strong) UILabel     *titleLabel;
+@property (nonatomic,strong) UILabel     *subTitleLabel;
+@property (nonatomic,strong) UIImageView *flagImageView;
+
+@end
+
 

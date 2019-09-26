@@ -6,6 +6,9 @@
 //
 
 #import "BaseTableViewCell.h"
+#import "UIView+ZQExten.h"
+#import "UIImage+ZQAdd.h"
+#import "UIColor+ZQAdd.h"
 
 static const CGFloat DefaultEmptyCellHeight = 10.0f;
 static const CGFloat DefaultCellHeight = 44.0f;
@@ -83,7 +86,6 @@ static const CGFloat DefaultCellHeight = 44.0f;
 @end
 
 
-
 @implementation ZQDefaultCellItem
 + (instancetype)cellWithTitleStr:(NSString *)titleStr content:(NSString*)contentStr {
     return [self cellWithTitleStr:titleStr content:contentStr bgColor:[UIColor whiteColor] height:DefaultCellHeight];
@@ -129,6 +131,93 @@ static const CGFloat DefaultCellHeight = 44.0f;
         self.textLabel.text = item.titleStr;
         self.detailTextLabel.text = item.contentStr;
     }
+}
+
+@end
+
+
+@implementation ZQCustomDefaultCellItem
+
++ (instancetype)cellWithTitleStr:(NSString *)titleStr subTitle:(NSString*)subTitleStr {
+    ZQCustomDefaultCellItem *item =  [ZQCustomDefaultCellItem new];
+    item.cellHeight     = @(55);
+    item.titleStr       = titleStr;
+    item.subTitleStr    = subTitleStr;
+    item.bgColor    = [UIColor whiteColor];
+    item.cellClass = [ZQCustomDefaultCell class];
+    return item;
+}
+@end
+@implementation ZQCustomDefaultCell
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    self = [super initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:reuseIdentifier];
+    if (self) {
+        self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+        [self setupContentView];
+    }
+    return self;
+}
+- (void)setupContentView {
+    [self.contentView addSubview:self.titleLabel];
+    [self.contentView addSubview:self.subTitleLabel];
+    [self.contentView addSubview:self.flagImageView];
+}
+
+- (void)layoutSubviews {
+    self.titleLabel.left = 16;
+    self.titleLabel.centerY = self.contentView.centerY;
+    self.titleLabel.height = 20;
+    
+    self.flagImageView.centerY = self.contentView.centerY;
+    self.flagImageView.right   = self.contentView.right - 16;
+    self.flagImageView.width   = 20;
+    self.flagImageView.height  = 20;
+    
+    self.subTitleLabel.centerY = self.contentView.centerY;
+    self.subTitleLabel.right   = self.flagImageView.left -8;
+    self.subTitleLabel.height = 20;
+}
+
+- (void)setCellModel:(id<CellModelBasicProtocol>)object {
+    [super setObject:object];
+    if ([object isKindOfClass:[ZQCustomDefaultCellItem class]]) {
+        ZQCustomDefaultCellItem *item = (ZQCustomDefaultCellItem *)object;
+        self.contentView.backgroundColor = item.bgColor;
+        self.titleLabel.text             = item.titleStr;
+        self.subTitleLabel.text          = item.subTitleStr;
+        self.separatorInset              = item.separatorInset;
+        self.flagImageView = item.flagImageIconStr.length > 0 ? [UIImage imageFromIconfontWithIconStr:item.flagImageIconStr size:20 color:[UIColor colorWithHex:0x999999]] : [UIImage imageNamed:@"right_arrow"];
+
+    }
+}
+
+
+#pragma mark - lazy load
+- (UILabel*)titleLabel {
+    if (!_titleLabel) {
+        _titleLabel = [[UILabel alloc] init];
+        _titleLabel.font = [UIFont fontWithName:@"PingFangSC-Regular" size:14];
+        _titleLabel.textAlignment = NSTextAlignmentLeft;
+        _titleLabel.textColor = [UIColor colorWithHex:0x666666];
+    }
+    return _titleLabel;
+}
+
+- (UILabel*)subTitleLabel {
+    if (!_subTitleLabel) {
+        _subTitleLabel = [[UILabel alloc] init];
+        _subTitleLabel.font = [UIFont fontWithName:@"PingFangSC-Regular" size:14];
+        _subTitleLabel.textAlignment = NSTextAlignmentRight;
+        _subTitleLabel.textColor = [UIColor colorWithHex:0x333333];
+    }
+    return _subTitleLabel;
+}
+- (UIImageView*)flagImageView {
+    if (!_flagImageView) {
+        _flagImageView = [[UIImageView alloc] init];
+    }
+    return _flagImageView;
 }
 
 @end
