@@ -20,6 +20,8 @@ Pod::Spec.new do |s|
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
+  #使用 userframework  编译成静态库
+  s.static_framework = true
   s.requires_arc = true
 
   # s.default_subspec = 'Common', 'PAStatsAOP'hareCode
