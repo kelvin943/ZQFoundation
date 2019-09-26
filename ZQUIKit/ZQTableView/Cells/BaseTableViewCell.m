@@ -171,12 +171,12 @@ static const CGFloat DefaultCellHeight = 44.0f;
     self.titleLabel.width   = 100;
     self.titleLabel.height  = 20;
     
-    self.flagImageView.centerY = self.contentView.centerY;
-    self.flagImageView.right   = self.contentView.right - 16;
+    self.flagImageView.centerY = self.titleLabel.centerY;
+    self.flagImageView.right   = viewWidth - 16;
     self.flagImageView.width   = 20;
     self.flagImageView.height  = 20;
     
-    self.subTitleLabel.centerY = self.contentView.centerY;
+    self.subTitleLabel.centerY = self.flagImageView.centerY;
     self.subTitleLabel.right   = self.flagImageView.left -8;
     self.subTitleLabel.height = 100;
     self.subTitleLabel.height = 20;
@@ -200,9 +200,9 @@ static const CGFloat DefaultCellHeight = 44.0f;
 - (UILabel*)titleLabel {
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] init];
-        _titleLabel.font = [UIFont fontWithName:@"PingFangSC-Regular" size:14];
+        _titleLabel.font = [UIFont fontWithName:@"PingFangSC-Regular" size:16];
         _titleLabel.textAlignment = NSTextAlignmentLeft;
-        _titleLabel.textColor = [UIColor colorWithHex:0x666666];
+        _titleLabel.textColor = [UIColor colorWithHex:0x333333];
     }
     return _titleLabel;
 }
