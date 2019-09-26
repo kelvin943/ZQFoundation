@@ -10,6 +10,7 @@
 
 
 
+#import <ZQFoundation/ZQToastUtil.h>
 
 #import <ZQFoundation/BaseModel.h>
 #import <ZQFoundation/BaseViewModel.h>
@@ -22,6 +23,7 @@
 
 #else
 
+#import "ZQToastUtil.h"
 #import "BaseModel.h"
 #import "BaseViewModel.h"
 #import "BaseTabBarVC.h"
