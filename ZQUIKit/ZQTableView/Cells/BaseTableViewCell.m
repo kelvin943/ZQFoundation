@@ -166,6 +166,7 @@ static const CGFloat DefaultCellHeight = 44.0f;
 }
 
 - (void)layoutSubviews {
+    //不调用父视图的重新布局会导致 cell 系统自己的分割线不显示
     [super layoutSubviews];
     CGFloat margin = 16;
     self.titleLabel.left = margin;
