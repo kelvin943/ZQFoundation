@@ -19,13 +19,13 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    [self.tableView registerClassesWithReuseIds:@[@"ZQDefaultCell",@"ZQEmptyCell"]];
+    [self.tableView registerClassesWithReuseIds:@[@"ZQDefaultCell",@"ZQEmptyCell",@"ZQCustomDefaultCell"]];
     self.tableViewAdaptor.pullRefreshEnable = YES;
     self.tableViewAdaptor.loadMoreEnable = YES;
     
     self.tableView.tableFooterView = [[UIView alloc] init];
     
-    self.tableView.isShowEmpty = YES;
+//    self.tableView.isShowEmpty = YES;
     [self construstData];
     
 	// Do any additional setup after loading the view, typically from a nib.
@@ -42,7 +42,18 @@
     NSMutableArray * items = @[].mutableCopy;
 //    YYClassIvarInfo * info  = [[YYClassIvarInfo alloc] init];
     
+    {
+       ZQCustomDefaultCellItem * item = [ZQCustomDefaultCellItem cellWithTitleStr:@"wifi_on" subTitle:@"andsinf"];
+       [items addObject:item];
+    }
+    {
+       ZQCustomDefaultCellItem * item = [ZQCustomDefaultCellItem cellWithTitleStr:@"adsfas" subTitle:@"1231"];
+       [items addObject:item];
+    }
+    
+    
     [items addObject:[ZQDefaultCellItem cellWithTitleStr:@"123" content:@"456"]];
+    [items addObject:[ZQEmptyCellItem emptyCellItemWithBackgroundColor:[UIColor redColor]]];
     [items addObject:[ZQEmptyCellItem emptyCellItemWithBackgroundColor:[UIColor redColor]]];
     [items addObject:[ZQEmptyCellItem emptyCellItem]];
     [items addObject:[ZQDefaultCellItem cellWithTitleStr:@"123" content:@"456"]];
