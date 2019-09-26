@@ -27,6 +27,7 @@ Pod::Spec.new do |s|
   # s.default_subspec = 'Common', 'PAStatsAOP'hareCode
   
   # 基本分类 宏定义
+  s.source_files = 'ZQFoundation.h'
   s.subspec 'ZQCommon' do |ss|
       ss.source_files = 'ZQCommon/*.h'
       ss.subspec 'Category' do |category|
@@ -60,6 +61,10 @@ Pod::Spec.new do |s|
          baseTableview.dependency 'ZQFoundation/ZQUIKit/ZQBaseVC'
          baseTableview.dependency 'ZQFoundation/ZQUIKit/ZQBaseModel'
          baseTableview.dependency 'MJRefresh',  '3.2.0'
+      end
+      
+      ss.subspec 'Common' do |common|
+        common.source_files ='ZQUIKit/Common/**/*.{h,m}'
       end
   end
   

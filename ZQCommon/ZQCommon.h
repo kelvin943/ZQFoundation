@@ -1,12 +1,12 @@
 //
-//  ZQShareCode.h
+//  ZQCommon.h
 //  ZQDemoApp
 //
 //  Created by Macro on 2018/8/17.
 //  Copyright © 2018年 Macro. All rights reserved.
 //
 
-#if __has_include(<ZQFoundation/ZQShareCode.h>)
+#if __has_include(<ZQFoundation/ZQCommon.h>)
 
 //Macrpo
 #import <ZQFoundation/ZQMacros.h>
