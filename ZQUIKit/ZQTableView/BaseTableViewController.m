@@ -36,9 +36,9 @@
              self.tableViewAdaptor.tableView = self.tableView;
              if (@available(iOS 11.0, *)) {
                 self.tableView.contentInsetAdjustmentBehavior   = UIScrollViewContentInsetAdjustmentNever;
-                self.tableView.estimatedRowHeight               = CGFLOAT_MIN;
-                self.tableView.estimatedSectionHeaderHeight     = CGFLOAT_MIN;
-                self.tableView.estimatedSectionFooterHeight     = CGFLOAT_MIN;
+                self.tableView.estimatedRowHeight               = 0;
+                self.tableView.estimatedSectionHeaderHeight     = 0;
+                self.tableView.estimatedSectionFooterHeight     = 0;
             }
         }
     }
@@ -79,9 +79,9 @@
             _tableView.contentInsetAdjustmentBehavior   = UIScrollViewContentInsetAdjustmentNever;
             // iOS 11 开启 Self-Sizing 之后，tableView 使用 estimateRowHeight 一点点地变化更新的 contentSize 的值。
             // 这样导致 setContentOffset 为 0 不能回到顶部，故禁用 Self-Sizing
-            _tableView.estimatedRowHeight               = CGFLOAT_MIN;
-            _tableView.estimatedSectionHeaderHeight     = CGFLOAT_MIN;
-            _tableView.estimatedSectionFooterHeight     = CGFLOAT_MIN;
+            _tableView.estimatedRowHeight               = 0;
+            _tableView.estimatedSectionHeaderHeight     = 0;
+            _tableView.estimatedSectionFooterHeight     = 0;
         }
     }
     return _tableView;
