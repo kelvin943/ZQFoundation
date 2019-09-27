@@ -26,11 +26,34 @@
     self.tableView.frame = self.view.bounds;
 }
 
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    self.tableViewAdaptor.delegate = self
+    self
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     if (!self.tableView.superview) {
         [self.view addSubview:self.tableView];
     }
+}
+
+#pragma mark -  BaseTableViewAdaptorDelegate
+- (void)tableView:(UITableView *)tableView
+  didSelectObject:(id<CellModelBasicProtocol>)object
+      atIndexPath:(NSIndexPath *)indexPath {
+    
+}
+
+- (void)tableView:(UITableView *)tableView
+     didSetObject:(id<CellModelBasicProtocol>)object
+             cell:(UITableViewCell *)cell {
+    
+}
+
+- (void)refreshReload:(ZQTableViewRefreshType)pullType {
+    
 }
 
 #pragma mark - lazy load
