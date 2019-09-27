@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BaseTableViewController : BaseViewController<BaseTableViewAdaptorDelegate>
 
-@property (nonatomic, strong) UITableView * tableView;
+@property (nonatomic, strong) IBOutlet UITableView * tableView;
 @property (nonatomic, strong) BaseTableViewAdaptor * tableViewAdaptor;
 
 @end
