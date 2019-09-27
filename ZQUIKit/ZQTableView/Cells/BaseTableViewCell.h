@@ -9,6 +9,7 @@
 #import "BaseModel.h"
 @interface BaseTableViewCell : UITableViewCell
 @property (nonatomic, strong) id<CellModelBasicProtocol> cellModel;
+@property (nonatomic, strong) NSIndexPath* indexPath;
 + (NSString *)cellIdentifier;
 + (CGFloat)tableView:(UITableView*)tableView rowHeightForObject:(id<CellModelBasicProtocol>)cellModel;
 

@@ -67,6 +67,7 @@
     }
     //设置 cell 数据
     if ([cell isKindOfClass:[BaseTableViewCell class]]) {
+        [(BaseTableViewCell*)cell setIndexPath:indexPath];
         [(BaseTableViewCell*)cell setCellModel:cellModel];
     }
     //通知 VC 已经设置 cell 数据

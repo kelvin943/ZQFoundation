@@ -13,6 +13,7 @@
 @synthesize cellType      = _cellType;
 @synthesize cellHeight    = _cellHeight;
 @synthesize cellTarget    = _cellTarget;
+@synthesize indexPath     = _indexPath;
 
 - (void)encodeWithCoder:(NSCoder *)aCoder{
     [self yy_modelEncodeWithCoder:aCoder];

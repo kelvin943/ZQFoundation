@@ -17,6 +17,7 @@
 @property (nonatomic, assign) Class cellClass;
 @property (nonatomic, assign) NSInteger cellType;
 @property (nonatomic, strong) NSNumber* cellHeight;
+@property (nonatomic, strong) NSIndexPath* indexPath;
 @property (nonatomic,   weak) id  cellTarget;
 @end
 
