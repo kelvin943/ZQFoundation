@@ -28,8 +28,8 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.tableViewAdaptor.delegate  = self
-    self.tableViewAdaptor.tableView = self.tableView
+    self.tableViewAdaptor.delegate  = self;
+    self.tableViewAdaptor.tableView = self.tableView;
 }
 
 - (void)viewDidLoad {
@@ -40,21 +40,17 @@
 }
 
 #pragma mark -  BaseTableViewAdaptorDelegate
+//按需由子类复写
 - (void)tableView:(UITableView *)tableView
   didSelectObject:(id<CellModelBasicProtocol>)object
-      atIndexPath:(NSIndexPath *)indexPath {
-    
-}
+      atIndexPath:(NSIndexPath *)indexPath {}
 
 - (void)tableView:(UITableView *)tableView
      didSetObject:(id<CellModelBasicProtocol>)object
-             cell:(UITableViewCell *)cell {
-    
-}
+             cell:(UITableViewCell *)cell {}
 
-- (void)refreshReload:(ZQTableViewRefreshType)pullType {
-    
-}
+- (void)refreshReload:(ZQTableViewRefreshType)pullType {}
+
 
 #pragma mark - lazy load
 - (UITableView *)tableView {
@@ -85,10 +81,6 @@
         _tableViewAdaptor.tableView     = self.tableView;
     }
     return _tableViewAdaptor;
-}
-
-- (void)refreshReload:(ZQTableViewRefreshType)pullType {
-    
 }
 
 @end
