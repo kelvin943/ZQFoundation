@@ -63,13 +63,13 @@
     
     if (@available(iOS 11.0, *)) {
         // iOS 11 弃用了 automaticallyAdjustsScrollViewInsets 属性，Never 表示不计算内边距
-        self.tableview.contentInsetAdjustmentBehavior   = UIScrollViewContentInsetAdjustmentNever;
+        self.tableView.contentInsetAdjustmentBehavior   = UIScrollViewContentInsetAdjustmentNever;
         // iOS 11 开启 Self-Sizing 之后，tableView 使用 estimateRowHeight 一点点地变化更新的 contentSize 的值。
         // 这样导致 setContentOffset 为 0 不能回到顶部，故禁用 Self-Sizing
         //对于 Plain 类型的 tableView 而言，要去掉 header / footer 请使用 0，对于 Grouped 类型的 tableView 而言，要去掉 header / footer 请使用 CGFLOAT_MIN
-        self.tableview.estimatedRowHeight               = 0;
-        self.tableview.estimatedSectionHeaderHeight     = 0;
-        self.tableview.estimatedSectionFooterHeight     = 0;
+        self.tableView.estimatedRowHeight               = 0;
+        self.tableView.estimatedSectionHeaderHeight     = 0;
+        self.tableView.estimatedSectionFooterHeight     = 0;
     }
     //设置代理
     self.tableViewAdaptor.tableView = self.tableView;
