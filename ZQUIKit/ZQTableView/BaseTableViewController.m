@@ -28,8 +28,8 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.tableViewAdaptor.delegate = self
-    self
+    self.tableViewAdaptor.delegate  = self
+    self.tableViewAdaptor.tableView = self.tableView
 }
 
 - (void)viewDidLoad {
@@ -74,8 +74,6 @@
             _tableView.estimatedSectionHeaderHeight     = 0;
             _tableView.estimatedSectionFooterHeight     = 0;
         }
-        
-        _tableViewAdaptor.tableView     = _tableView;
     }
     return _tableView;
 }
@@ -84,6 +82,7 @@
     if (!_tableViewAdaptor) {
         _tableViewAdaptor               = [[BaseTableViewAdaptor alloc] init];
         _tableViewAdaptor.delegate      = self;
+        _tableViewAdaptor.tableView     = self.tableView;
     }
     return _tableViewAdaptor;
 }
