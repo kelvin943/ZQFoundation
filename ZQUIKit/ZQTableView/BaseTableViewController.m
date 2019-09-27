@@ -31,14 +31,16 @@
     self = [super initWithCoder:coder];
     if (self) {
         //保证从xib 初始化后其他的设置和手动初始化设置一样
-        self.tableViewAdaptor.delegate  = self;
-        self.tableViewAdaptor.tableView = self.tableView;
-        if (@available(iOS 11.0, *)) {
-           self.tableView.contentInsetAdjustmentBehavior   = UIScrollViewContentInsetAdjustmentNever;
-           self.tableView.estimatedRowHeight               = CGFLOAT_MIN;
-           self.tableView.estimatedSectionHeaderHeight     = CGFLOAT_MIN;
-           self.tableView.estimatedSectionFooterHeight     = CGFLOAT_MIN;
-       }
+        if (_tableView && _tableViewAdaptor) {
+            self.tableViewAdaptor.delegate  = self;
+             self.tableViewAdaptor.tableView = self.tableView;
+             if (@available(iOS 11.0, *)) {
+                self.tableView.contentInsetAdjustmentBehavior   = UIScrollViewContentInsetAdjustmentNever;
+                self.tableView.estimatedRowHeight               = CGFLOAT_MIN;
+                self.tableView.estimatedSectionHeaderHeight     = CGFLOAT_MIN;
+                self.tableView.estimatedSectionFooterHeight     = CGFLOAT_MIN;
+            }
+        }
     }
     return self;
 }
