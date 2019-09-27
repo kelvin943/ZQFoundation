@@ -29,7 +29,7 @@ static const CGFloat DefaultCellHeight = 44.0f;
     return self;
 }
 
-- (void)setObject:(id<CellModelBasicProtocol>)cellModel {
+- (void)setCellModel:(id<CellModelBasicProtocol>)cellModel {
     _cellModel = cellModel;
 }
 
@@ -79,7 +79,7 @@ static const CGFloat DefaultCellHeight = 44.0f;
 }
 
 - (void)setCellModel:(id<CellModelBasicProtocol>)object {
-    [super setObject:object];
+    [super setCellModel:object];
     if ([object isKindOfClass:[ZQEmptyCellItem class]]) {
         ZQEmptyCellItem *item = (ZQEmptyCellItem *)object;
         self.contentView.backgroundColor = item.bgColor;
@@ -125,7 +125,7 @@ static const CGFloat DefaultCellHeight = 44.0f;
 }
 
 - (void)setCellModel:(id<CellModelBasicProtocol>)object {
-    [super setObject:object];
+    [super setCellModel:object];
     if ([object isKindOfClass:[ZQDefaultCellItem class]]) {
         ZQDefaultCellItem *item = (ZQDefaultCellItem *)object;
         self.contentView.backgroundColor = item.bgColor;
@@ -190,7 +190,7 @@ static const CGFloat DefaultCellHeight = 44.0f;
 }
 
 - (void)setCellModel:(id<CellModelBasicProtocol>)object {
-    [super setObject:object];
+    [super setCellModel:object];
     if ([object isKindOfClass:[ZQCustomDefaultCellItem class]]) {
         ZQCustomDefaultCellItem *item = (ZQCustomDefaultCellItem *)object;
         self.contentView.backgroundColor = item.bgColor;
