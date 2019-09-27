@@ -10,17 +10,14 @@
 
 /*
  e.g:
-  get iconfont use:  IconFont(@"fontNmae",size)
   get image from defaul iconfont: ImageWithDefaultIconfont(_iconStr_,_size_,_color_)
-
+  get image from costom iconfont: ImageWithDefaultIconfont(_fontName_,_iconStr_,_size_,_color_)
  */
 
-#define IconFont(_name_,size) [UIFont fontWithName:_name_ size:size]
 #define ImageWithIconfont(_fontName_,_iconStr_,_size_,_color_)  \
 [UIImage imageFromIconfontWihtFontName:_fontName_ iconStr:_iconStr_ size:_size_ color:_color_]
 #define ImageWithDefaultIconfont(_iconStr_,_size_,_color_) \
 [UIImage imageFromIconfontWihtFontName:@"iconfont" iconStr:_iconStr_ size:_size_ color:_color_]
-
 
 
 NS_ASSUME_NONNULL_BEGIN

@@ -9,7 +9,7 @@
 #ifndef ZQMacros_h
 #define ZQMacros_h
 
-#pragma mark - 打印
+#pragma mark - Print
     #ifdef DEBUG
         //print
         #define ZQPrint(format, ...) do {  \
@@ -49,7 +49,7 @@
     #define START_COUNT_TIME(start) clock_t start = clock()
     #define END_COUNT_TIME(start) (clock() - start)
 
-#pragma mark - 沙盒
+#pragma mark - Sandbox
     //获取app主目录
     #define kPathAppHome   NSHomeDirectory()
     //获取temp
@@ -99,7 +99,7 @@
      });
  */
 
-#pragma mark - 方法
+#pragma mark - Fetch System signton
     #define ZQShareAppDelegate       ((AppDelegate *)[UIApplication sharedApplication].delegate)
     #define ZQShareWindow            [[UIApplication sharedApplication].delegate window]
     #define ZQShareKeyWindow         [UIApplication sharedApplication].keyWindow
@@ -169,19 +169,29 @@
 //    #define BeginIgnoreDeprecatedWarning BeginIgnoreClangWarning(-Wdeprecated-declarations)
 //    #define EndIgnoreDeprecatedWarning EndIgnoreClangWarning
 
+#pragma mark - Font
+#define PFRegularFont(fontSize)           [UIFont fontWithName:@"PingFangSC-Regular" size:fontSize]
+#define PFMediumFont(fontSize)            [UIFont fontWithName:@"PingFangSC-Medium" size:fontSize]
+#define PFSemiboldFont(fontSize)          [UIFont fontWithName:@"PingFangSC-Semibold" size:fontSize]
+#define PFLightFont(fontSize)             [UIFont fontWithName:@"PingFangSC-Light" size:fontSize]
+#define ZQCustomFont(fontName,fontSize)   [UIFont fontWithName:fontName size:fontSize]
+#define ZQSystemFont(fontSize)            [UIFont systemFontOfSize:fontSize]
+
 
 #pragma mark - 判断设备
-    /** 判断是否为iPhone*/
+/*
+     #if TARGET_OS_IPHONE
+     //真机
+     #endif
+     #if TARGET_IPHONE_SIMULATOR
+     //模拟器
+     #endif
+ */
+    //判断是否为iPhone
     #define ZQ_ISiPhone   (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-    /** 判断是否为iPad*/
+    //判断是否为iPad
     #define ZQ_ISiPad     (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-//    /** 判断是真机还是模拟器*/
-//    #if TARGET_OS_IPHONE
-//    //真机
-//    #endif
-//    #if TARGET_IPHONE_SIMULATOR
-//    //模拟器
-//    #endif
+
 #pragma mark - 判断机型
     //iphone5、iphoneSE 逻辑像是320:568  @2x
     #define ZQ_IPHONE5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
@@ -216,16 +226,17 @@
 
 
 
-/**
-Add this macro before each category implementation, so we don't have to use
+#pragma mark - static library  bug
+/*Add this macro before each category implementation, so we don't have to use
 -all_load or -force_load to load object files from static libraries that only
 contain categories and no classes.
-More info: http://developer.apple.com/library/mac/#qa/qa2006/qa1490.html .
-*******************************************************************************/
+More info: http://developer.apple.com/library/mac/#qa/qa2006/qa1490.html .*/
+
 #ifndef ZQCATEGORY_DUMMY_CLASS
-#define ZQCATEGORY_DUMMY_CLASS(_name_) \
-@interface ZQCATEGORY_DUMMY_CLASS ## _name_ : NSObject @end \
-@implementation ZQCATEGORY_DUMMY_CLASS ## _name_ @end
+    #define ZQCATEGORY_DUMMY_CLASS(_name_) \
+    @interface ZQCATEGORY_DUMMY_CLASS ## _name_ : NSObject @end \
+    @implementation ZQCATEGORY_DUMMY_CLASS ## _name_ @end
 #endif
+
 
 #endif /* ZQMacros_h */

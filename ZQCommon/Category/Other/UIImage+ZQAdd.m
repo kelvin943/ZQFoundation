@@ -10,7 +10,6 @@
 
 ZQCATEGORY_DUMMY_CLASS(UIImage_ZQAdd)
 
-
 @implementation UIImage (IconFont)
 //使用默认的iconfont
 + (UIImage *)imageFromIconfontWithIconStr:(NSString *)iconStr size:(NSUInteger)size color:(UIColor *)color {
@@ -24,7 +23,7 @@ ZQCATEGORY_DUMMY_CLASS(UIImage_ZQAdd)
     CGSize imageSize = CGSizeMake(size, size);
     UIGraphicsBeginImageContextWithOptions(imageSize, NO, [[UIScreen mainScreen] scale]);
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, size, size)];
-    label.font = IconFont(fontName,size);
+    label.font = ZQCustomFont(fontName,size);
     label.text = iconStr;
     if(color){
         label.textColor = color;
@@ -50,7 +49,7 @@ ZQCATEGORY_DUMMY_CLASS(UIImage_ZQAdd)
                fontSize:(CGFloat)size
                   color:(UIColor *)color {
     UIGraphicsBeginImageContextWithOptions(frame.size, NO, 0.0);
-    [iconStr drawInRect:frame withAttributes:@{NSFontAttributeName:IconFont(fontName,size), NSForegroundColorAttributeName:color}];
+    [iconStr drawInRect:frame withAttributes:@{NSFontAttributeName:ZQCustomFont(fontName,size), NSForegroundColorAttributeName:color}];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return image;
