@@ -26,23 +26,33 @@
     self.tableView.frame = self.view.bounds;
 }
 
+//手动初始化
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
+        [self didInitialize];
+    }
+    return self;
+}
 //xib 初始化
 - (instancetype)initWithCoder:(NSCoder *)coder {
     self = [super initWithCoder:coder];
     if (self) {
-        //保证从xib 初始化后其他的设置和手动初始化设置一样
-        if (_tableView && _tableViewAdaptor) {
-            self.tableViewAdaptor.delegate  = self;
-             self.tableViewAdaptor.tableView = self.tableView;
-             if (@available(iOS 11.0, *)) {
-                self.tableView.contentInsetAdjustmentBehavior   = UIScrollViewContentInsetAdjustmentNever;
-                self.tableView.estimatedRowHeight               = 0;
-                self.tableView.estimatedSectionHeaderHeight     = 0;
-                self.tableView.estimatedSectionFooterHeight     = 0;
-            }
-        }
+//        [self didInitialize];
     }
     return self;
+}
+
+- (void)didInitialize {
+    self.tableView = ({
+        UITableView * tableview         = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+        tableview.backgroundColor      = self.view.backgroundColor;
+        tableview.backgroundView       = nil;
+        tableview;
+    });
+    self.tableViewAdaptor =({
+        BaseTableViewAdaptor *tableViewAdaptor = [[BaseTableViewAdaptor alloc] init];
+        tableViewAdaptor;
+    });
 }
 
 - (void)viewDidLoad {
@@ -50,6 +60,24 @@
     if (!self.tableView.superview) {
         [self.view addSubview:self.tableView];
     }
+    
+    if (@available(iOS 11.0, *)) {
+        // iOS 11 弃用了 automaticallyAdjustsScrollViewInsets 属性，Never 表示不计算内边距
+        self.tableview.contentInsetAdjustmentBehavior   = UIScrollViewContentInsetAdjustmentNever;
+        // iOS 11 开启 Self-Sizing 之后，tableView 使用 estimateRowHeight 一点点地变化更新的 contentSize 的值。
+        // 这样导致 setContentOffset 为 0 不能回到顶部，故禁用 Self-Sizing
+        //对于 Plain 类型的 tableView 而言，要去掉 header / footer 请使用 0，对于 Grouped 类型的 tableView 而言，要去掉 header / footer 请使用 CGFLOAT_MIN
+        self.tableview.estimatedRowHeight               = 0;
+        self.tableview.estimatedSectionHeaderHeight     = 0;
+        self.tableview.estimatedSectionFooterHeight     = 0;
+    }
+    //设置代理
+    self.tableViewAdaptor.tableView = self.tableView;
+    self.tableViewAdaptor.delegate  = self;
+    self.tableView.dataSource       = self.tableViewAdaptor;
+    self.tableView.delegate         = self.tableViewAdaptor;
+        
+        
 }
 
 #pragma mark -  BaseTableViewAdaptorDelegate
@@ -63,38 +91,6 @@
              cell:(UITableViewCell *)cell {}
 
 - (void)refreshReload:(ZQTableViewRefreshType)pullType {}
-
-
-#pragma mark - lazy load
-- (UITableView *)tableView {
-    if (!_tableView) {
-        _tableView                      = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
-        _tableView.backgroundColor      = self.view.backgroundColor;
-        _tableView.backgroundView       = nil;
-//        _tableView.separatorStyle       = UITableViewCellSeparatorStyleNone;
-        _tableView.dataSource           = self.tableViewAdaptor;
-        _tableView.delegate             = self.tableViewAdaptor;
-        if (@available(iOS 11.0, *)) {
-            // iOS 11 弃用了 automaticallyAdjustsScrollViewInsets 属性，Never 表示不计算内边距
-            _tableView.contentInsetAdjustmentBehavior   = UIScrollViewContentInsetAdjustmentNever;
-            // iOS 11 开启 Self-Sizing 之后，tableView 使用 estimateRowHeight 一点点地变化更新的 contentSize 的值。
-            // 这样导致 setContentOffset 为 0 不能回到顶部，故禁用 Self-Sizing
-            _tableView.estimatedRowHeight               = 0;
-            _tableView.estimatedSectionHeaderHeight     = 0;
-            _tableView.estimatedSectionFooterHeight     = 0;
-        }
-    }
-    return _tableView;
-}
-
-- (BaseTableViewAdaptor *)tableViewAdaptor {
-    if (!_tableViewAdaptor) {
-        _tableViewAdaptor               = [[BaseTableViewAdaptor alloc] init];
-        _tableViewAdaptor.delegate      = self;
-        _tableViewAdaptor.tableView     = self.tableView;
-    }
-    return _tableViewAdaptor;
-}
 
 @end
 

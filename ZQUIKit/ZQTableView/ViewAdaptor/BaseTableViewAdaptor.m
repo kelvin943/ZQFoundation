@@ -240,8 +240,6 @@
             }
         }];
         self.tableView.mj_header = self.mjHeader;
-
-       
     }
 }
 - (void)setLoadMoreEnable:(BOOL)loadMoreEnable {
