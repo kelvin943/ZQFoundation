@@ -2,7 +2,7 @@
 //  UITableView+ZQAdd.h
 //  ZQFoundation
 //
-//  Created by 张泉(平安好房技术中心智慧城市房产云研发团队前端研发组) on 2019/9/25.
+//  Created by 张泉(macro) on 2019/9/25.
 //  零行代码为 tableview 添加空数据加载占位图
 
 #import <UIKit/UIKit.h>

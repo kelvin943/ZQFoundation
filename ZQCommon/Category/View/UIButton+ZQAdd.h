@@ -2,7 +2,7 @@
 //  UIButton+ZQAdd.h
 //  ZQDemoApp
 //
-//  Created by 张泉(平安好房技术中心智慧城市房产云研发团队前端研发组) on 2019/3/1.
+//  Created by 张泉(macro) on 2019/3/1.
 //  Copyright © 2019 张泉. All rights reserved.
 //
 
