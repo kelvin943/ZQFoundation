@@ -17,6 +17,14 @@ static const CGFloat DefaultCellHeight = 44.0f;
 
 @implementation BaseTableViewCell
 
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    //XIB 初始化设置同手动初始化
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+    self.separatorInset = UIEdgeInsetsMake(0,0,0,viewWidth);
+    self.accessoryType = UITableViewCellAccessoryNone;
+}
+
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
