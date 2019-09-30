@@ -58,7 +58,7 @@
     return _items;
 }
 
-- (BOOL)hasNoMore {
+- (BOOL)hasMore {
     //当前个数小于总数，前提是每次接口返回的list需要追加到item中（由业务层实现）
     return ([self.items count] < self.totals);
 }
