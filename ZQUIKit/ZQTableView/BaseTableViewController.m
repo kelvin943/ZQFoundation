@@ -57,6 +57,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.tableView registerClassesWithReuseIds:@[@"ZQDefaultCell",@"ZQEmptyCell",@"ZQCustomDefaultCell"]];
+    self.tableView.backgroundColor = [UIColor colorWithHex:0xF4F4F4];
     if (!self.tableView.superview) {
         [self.view addSubview:self.tableView];
     }
