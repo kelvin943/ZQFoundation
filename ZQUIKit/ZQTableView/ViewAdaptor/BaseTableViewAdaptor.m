@@ -233,27 +233,32 @@
 - (void)setPullRefreshEnable:(BOOL)pullRefreshEnable {
     _pullRefreshEnable = pullRefreshEnable;
     if (_pullRefreshEnable) {
-        __weak typeof(self) weakSelf = self;
-        self.mjHeader = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-            if ([weakSelf.delegate respondsToSelector:@selector(refreshReload:)]) {
-                [weakSelf.delegate refreshReload:ZQTableViewRefreshTypePullDown];
-            }
-        }];
+        if (!_mjHeader) {
+            __weak typeof(self) weakSelf = self;
+            self.mjHeader = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+                if ([weakSelf.delegate respondsToSelector:@selector(refreshReload:)]) {
+                    [weakSelf.delegate refreshReload:ZQTableViewRefreshTypePullDown];
+                }
+            }];
+        }
+        
         self.tableView.mj_header = self.mjHeader;
     }
 }
 - (void)setLoadMoreEnable:(BOOL)loadMoreEnable {
     _loadMoreEnable = loadMoreEnable;
     if (_loadMoreEnable) {
-        __weak typeof(self) weakSelf = self;
-        self.mjFooter = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-            if ([weakSelf.delegate respondsToSelector:@selector(refreshReload:)]) {
-                [weakSelf.delegate refreshReload:ZQTableViewRefreshTypePullUp];
-            }
-        }];
+        if (!_mjFooter) {
+            __weak typeof(self) weakSelf = self;
+            self.mjFooter = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+                if ([weakSelf.delegate respondsToSelector:@selector(refreshReload:)]) {
+                    [weakSelf.delegate refreshReload:ZQTableViewRefreshTypePullUp];
+                }
+            }];
+        }
         self.tableView.mj_footer = self.mjFooter;
     } else {
-        self.tableView.mj_footer = nil;
+        self.tableView.mj_footer.state = MJRefreshStateNoMoreData;
     }
 }
 
