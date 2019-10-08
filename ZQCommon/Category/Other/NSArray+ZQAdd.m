@@ -10,6 +10,34 @@
 #import "ZQMacros.h"
 ZQCATEGORY_DUMMY_CLASS(NSArray_ZQAdd)
 
-@implementation NSArray (ZQAdd)
 
+@implementation NSArray (ZQPrint)
+#ifdef DEBUG
+- (NSString *)descriptionWithLocale:(id)locale {
+    NSMutableString *strM = [NSMutableString stringWithString:@"(\n"];
+    [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [strM appendFormat:@"\t%@,\n", obj];
+    }];
+    [strM appendString:@")"];
+    
+    return strM;
+}
+#endif
 @end
+
+
+@implementation NSDictionary (ZQPrint)
+#ifdef DEBUG
+- (NSString *)descriptionWithLocale:(id)locale {
+    NSMutableString *strM = [NSMutableString stringWithString:@"{\n"];
+    [self enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        [strM appendFormat:@"\t%@ = %@;\n", key, obj];
+    }];
+    
+    [strM appendString:@"}\n"];
+    
+    return strM;
+}
+#endif
+@end
+

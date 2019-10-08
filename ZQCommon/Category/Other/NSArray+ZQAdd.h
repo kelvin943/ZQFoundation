@@ -9,8 +9,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NSArray (ZQAdd)
+@interface NSArray (ZQPrint)
 
+@end
+
+@interface NSDictionary(ZQPrint)
 @end
 
 NS_ASSUME_NONNULL_END
