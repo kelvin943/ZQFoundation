@@ -10,6 +10,11 @@
 #import "ZQMacros.h"
 ZQCATEGORY_DUMMY_CLASS(NSArray_ZQAdd)
 
+/*
+************************************************************************************
+*NSDictionary与NSArray的分类, 控制台打印json数据中的中文
+************************************************************************************
+*/
 
 @implementation NSArray (ZQPrint)
 #ifdef DEBUG
