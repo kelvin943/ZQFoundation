@@ -21,8 +21,13 @@
     [self registerKeyboardNotification];
 }
 
-- (void)dealloc {
+
+- (void)dealloc NS_REQUIRES_SUPER {
+
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+#ifdef DEBUG
+    NSLog(@"%s dealloc",object_getClassName(self));
+#endif
 }
    
 
