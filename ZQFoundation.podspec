@@ -67,6 +67,7 @@ Pod::Spec.new do |s|
       
       ss.subspec 'Common' do |common|
         common.source_files ='ZQUIKit/Common/**/*.{h,m}'
+        common.dependency 'ZQFoundation/ZQCommon/Category'
       end
   end
   
