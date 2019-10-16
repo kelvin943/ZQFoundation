@@ -25,9 +25,9 @@
 
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSUInteger, LayoutType) {
-    LayoutTypeFromLeft,
-    LayoutTypeAvg,
+typedef NS_ENUM(NSUInteger, ZQSegmengViewLayoutType) {
+    ZQSegmengViewLayoutTypeFromLeft,
+    ZQSegmengViewLayoutTypeAverage,
 };
 
 
@@ -48,7 +48,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,  copy) NSArray *menuTitleArray;
 @property (nonatomic,  assign) NSInteger selectIndex;
 //布局方式
-@property (nonatomic,assign) IBInspectable LayoutType layoutType;
+@property (nonatomic,assign) IBInspectable ZQSegmengViewLayoutType layoutType;
 //左内边距
 @property (nonatomic,assign) IBInspectable CGFloat  leftPadding;
 //水平间距

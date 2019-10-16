@@ -50,7 +50,7 @@
 - (void)setUpSubviews {
     self.backgroundColor = [UIColor whiteColor];
     //设置默认值
-    self.layoutType  = LayoutTypeFromLeft;
+    self.layoutType  = ZQSegmengViewLayoutTypeFromLeft;
     self.buttonUnSelectFont  = ButtonUnSelectFont;
     self.buttonSelectFont    = ButtonSelectFont;
     self.buttonUnSelectColor = ButtonUnSelectColor;
@@ -81,7 +81,7 @@
 - (void)layoutSubviews {
     CGFloat viewWidth = self.bounds.size.width;
     CGFloat btnXStart = _leftPadding;
-    if (self.layoutType == LayoutTypeAvg) {
+    if (self.layoutType == ZQSegmengViewLayoutTypeAverage) {
         //根据 view 宽度和间隙均分计算出 button 的宽度
         _btnWidth = (viewWidth - _hSpacing*(self.menuTitleArray.count - 1) - (_leftPadding *2))/self.menuTitleArray.count;
         for (int i = 0; i < _btnArray.count; i++) {
