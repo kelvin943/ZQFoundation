@@ -9,6 +9,7 @@
 #import "ZQViewController.h"
 #import "BaseTableViewCell.h"
 #import "YYClassInfo.h"
+#import "TestVC.h"
 
 
 @interface ZQViewController ()
@@ -19,6 +20,7 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     [self.tableView registerClassesWithReuseIds:@[@"ZQDefaultCell",@"ZQEmptyCell",@"ZQCustomDefaultCell"]];
     self.tableViewAdaptor.pullRefreshEnable = YES;
     self.tableViewAdaptor.loadMoreEnable = YES;
@@ -36,6 +38,17 @@
     [self.tableViewAdaptor.mjFooter endRefreshing];
     self.tableViewAdaptor.loadMoreEnable = NO;
 }
+
+- (void)tableView:(UITableView *)tableView
+didSelectObject:(id<CellModelBasicProtocol>)object
+    atIndexPath:(NSIndexPath *)indexPath {
+    
+    TestVC * vc = [[TestVC alloc] init];
+    vc.view.backgroundColor = [UIColor whiteColor];
+    [self.navigationController pushViewController:vc animated:YES];
+    
+}
+
 
 
 - (void)construstData {
