@@ -9,8 +9,19 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@interface HoverCollectionView : UICollectionView
+@end
+
+@interface HoverTableViewCell : UITableViewCell
+@end
+
+
 @interface HoverTableViewController : BaseViewController
+@property (nonatomic, strong) IBOutlet UITableView * tableView;
 
 @end
+
+
+
 
 NS_ASSUME_NONNULL_END

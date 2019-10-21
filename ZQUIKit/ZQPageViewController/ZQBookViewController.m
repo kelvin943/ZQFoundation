@@ -5,13 +5,13 @@
 //  Created by 张泉(平安好房技术中心智慧城市房产云研发团队前端研发组) on 2019/10/17.
 //
 
-#import "ZQPageViewController.h"
+#import "ZQBookViewController.h"
 
-@interface ZQPageViewController ()<UIPageViewControllerDelegate,UIPageViewControllerDataSource,UIScrollViewDelegate>
+@interface ZQBookViewController ()<UIPageViewControllerDelegate,UIPageViewControllerDataSource,UIScrollViewDelegate>
 @property (strong,  nonatomic) UIPageViewController *pageViewController;
 @end
 
-@implementation ZQPageViewController
+@implementation ZQBookViewController
 
 
 - (void)viewWillLayoutSubviews {

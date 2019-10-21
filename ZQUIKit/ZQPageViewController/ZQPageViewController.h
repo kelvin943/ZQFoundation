@@ -7,10 +7,30 @@
 
 #import <ZQFoundation/ZQFoundation.h>
 
+@class ZQPageViewController;
+@protocol ZQPageViewControllerDelegate <NSObject>
+@optional
+- (void)pageViewController:(ZQPageViewController*)pageViewController didScrolledXPercetage:(CGFloat)XPercetage;
+
+@end
+
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ZQPageViewController : BaseViewController
+@interface ZQPageCollectionCell : UICollectionViewCell
 
+@property (nonatomic, weak) __kindof UIViewController *viewController;
++ (NSString *)reuseIdentifier;
+- (void)addChildViewIfNeeded;
+
+@end
+
+
+@interface ZQPageViewController : BaseViewController
+// Page VC 滚动的区域，默认全屏滚动
+@property (nonatomic, assign) UIEdgeInsets pageContetnInset;
+@property (nonatomic, weak) id<ZQPageViewControllerDelegate> delegate;
+
+- (void)reladPages;
 @end
 
 NS_ASSUME_NONNULL_END

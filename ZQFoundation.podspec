@@ -40,9 +40,6 @@ Pod::Spec.new do |s|
   
   s.subspec 'ZQUIKit' do |ss|
       ss.source_files = 'ZQUIKit/*.h'
-      ss.subspec 'ZQCustomizeBar' do |navbar|
-        navbar.source_files ='ZQUIKit/ZQCustomizeBar/**/*.{h,m}'
-      end
       ss.subspec 'ZQBaseTabBarVC' do |baseTabBar|
         baseTabBar.source_files = 'ZQUIKit/ZQBaseTabBarVC/**/*.{h,m}'
       end
@@ -56,6 +53,7 @@ Pod::Spec.new do |s|
       ss.subspec 'ZQBaseVC' do |baseVC|
          baseVC.source_files = 'ZQUIKit/ZQBaseVC/**/*.{h,m}'
       end
+      
       ss.subspec 'ZQTableView' do |baseTableview|
          baseTableview.source_files = 'ZQUIKit/ZQTableView/**/*.{h,m}'
          #内部的依赖如果不懈，spec 远程检查会有语法错误
@@ -64,11 +62,17 @@ Pod::Spec.new do |s|
          baseTableview.dependency 'ZQFoundation/ZQCommon/Category'
          baseTableview.dependency 'MJRefresh',  '3.2.0'
       end
-      
       ss.subspec 'Common' do |common|
         common.source_files ='ZQUIKit/Common/**/*.{h,m}'
         common.dependency 'ZQFoundation/ZQCommon/Category'
       end
+      ss.subspec 'ZQCustomizeBar' do |navbar|
+        navbar.source_files ='ZQUIKit/ZQCustomizeBar/**/*.{h,m}'
+      end
+      ss.subspec 'ZQPageViewController' do |pagevc|
+        pagevc.source_files ='ZQUIKit/ZQPageViewController/**/*.{h,m}'
+      end
+      
   end
   
 end

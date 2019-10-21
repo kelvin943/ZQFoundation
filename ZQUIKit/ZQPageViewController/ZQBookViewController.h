@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ZQPageViewController : BaseViewController
+@interface ZQBookViewController : BaseViewController
 
 @property (nonatomic,assign,readonly) NSInteger currentIndex;
 @property (nonatomic,strong) NSArray<__kindof UIViewController *> *viewControllers;
