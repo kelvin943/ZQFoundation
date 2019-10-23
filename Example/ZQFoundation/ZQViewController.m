@@ -10,6 +10,7 @@
 #import "BaseTableViewCell.h"
 #import "YYClassInfo.h"
 #import "TestVC.h"
+#import "hoverVC.h"
 
 
 @interface ZQViewController ()
@@ -43,9 +44,14 @@
 didSelectObject:(id<CellModelBasicProtocol>)object
     atIndexPath:(NSIndexPath *)indexPath {
     
-    TestVC * vc = [[TestVC alloc] init];
+//    TestVC * vc = [[TestVC alloc] init];
+//    vc.view.backgroundColor = [UIColor whiteColor];
+//    [self.navigationController pushViewController:vc animated:YES];
+    
+    hoverVC* vc = [[hoverVC alloc] init];
     vc.view.backgroundColor = [UIColor whiteColor];
     [self.navigationController pushViewController:vc animated:YES];
+    
     
 }
 

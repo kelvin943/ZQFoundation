@@ -7,17 +7,24 @@
 
 #import <ZQFoundation/ZQFoundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
+@protocol HoverTableViewCellDateSource <NSObject>
+@optional
+- (NSArray<UIViewController*>*)viewControllerOfPageView;
 
-@interface HoverCollectionView : UICollectionView
 @end
 
+
+NS_ASSUME_NONNULL_BEGIN
+
 @interface HoverTableViewCell : UITableViewCell
+@property (nonatomic,  weak) id<HoverTableViewCellDateSource> delegate;
 @end
 
 
 @interface HoverTableViewController : BaseViewController
 @property (nonatomic, strong) IBOutlet UITableView * tableView;
+
+- (void)reloadPage;
 
 @end
 

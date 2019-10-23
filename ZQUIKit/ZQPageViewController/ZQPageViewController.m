@@ -58,7 +58,7 @@
 }
 
 
-- (void)reladPages {
+- (void)reloadPages {
     [self.collectionView reloadData];
 }
 

@@ -51,7 +51,7 @@
            tempVC.view.backgroundColor = ZQRandomColor;
            [self.pageVC addChildViewController:tempVC];
     }
-    [self.pageVC reladPages];
+    [self.pageVC reloadPages];
 }
 
 /*
