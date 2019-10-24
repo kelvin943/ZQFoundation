@@ -54,7 +54,6 @@
     [super viewDidLoad];
     self.pageContetnInset = UIEdgeInsetsZero;
     [self.view addSubview:self.collectionView];
-    // Do any additional setup after loading the view.
 }
 
 
@@ -64,7 +63,6 @@
 
 #pragma mark - UICollectionViewDataSource / UICollectionViewDelegate
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    /// 假设说只有两个控制器左右滑动
     return self.childViewControllers.count;
 }
 

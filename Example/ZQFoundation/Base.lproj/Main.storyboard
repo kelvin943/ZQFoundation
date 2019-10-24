@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NJz-TT-Rp6">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="qFR-8g-YBd" id="Imb-hr-b22"/>
@@ -32,7 +32,7 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="NJz-TT-Rp6" secondAttribute="trailing" id="Kmc-5m-DAa"/>
                             <constraint firstItem="NJz-TT-Rp6" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leading" id="Ufp-y5-O3R"/>
-                            <constraint firstItem="NJz-TT-Rp6" firstAttribute="top" secondItem="TpU-gO-2f1" secondAttribute="top" id="b3A-y2-0Ae"/>
+                            <constraint firstItem="NJz-TT-Rp6" firstAttribute="top" secondItem="uEw-UM-LJ8" secondAttribute="bottom" id="Xth-mx-1Pf"/>
                             <constraint firstItem="Mvr-aV-6Um" firstAttribute="top" secondItem="NJz-TT-Rp6" secondAttribute="bottom" id="es4-DE-BQj"/>
                         </constraints>
                     </view>

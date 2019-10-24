@@ -11,13 +11,14 @@
 #import "YYClassInfo.h"
 #import "TestVC.h"
 #import "hoverVC.h"
-
+#import "tableVC.h"
 
 @interface ZQViewController ()
 
 @end
 
 @implementation ZQViewController
+
 
 - (void)viewDidLoad{
     [super viewDidLoad];
@@ -50,7 +51,7 @@ didSelectObject:(id<CellModelBasicProtocol>)object
     
     hoverVC* vc = [[hoverVC alloc] init];
     vc.view.backgroundColor = [UIColor whiteColor];
-    [self.navigationController pushViewController:vc animated:YES];
+    [self.navigationController pushViewController:vc animated:YES];    
     
     
 }
@@ -80,6 +81,19 @@ didSelectObject:(id<CellModelBasicProtocol>)object
     [items addObject:[ZQDefaultCellItem cellWithTitleStr:@"123" content:@"456"]];
     [items addObject:[ZQEmptyCellItem emptyCellItem]];
     [items addObject:[ZQDefaultCellItem cellWithTitleStr:@"123" content:@"456"]];
+    [items addObject:[ZQDefaultCellItem cellWithTitleStr:@"123" content:@"456"]];
+    [items addObject:[ZQEmptyCellItem emptyCellItemWithBackgroundColor:[UIColor redColor]]];
+    [items addObject:[ZQEmptyCellItem emptyCellItemWithBackgroundColor:[UIColor redColor]]];
+    [items addObject:[ZQEmptyCellItem emptyCellItem]];
+    [items addObject:[ZQDefaultCellItem cellWithTitleStr:@"123" content:@"456"]];
+    [items addObject:[ZQEmptyCellItem emptyCellItemWithBackgroundColor:[UIColor yellowColor]]];
+    [items addObject:[ZQDefaultCellItem cellWithTitleStr:@"123" content:@"456"]];
+    [items addObject:[ZQEmptyCellItem emptyCellItem]];
+    [items addObject:[ZQDefaultCellItem cellWithTitleStr:@"123" content:@"456"]];
+    [items addObject:[ZQDefaultCellItem cellWithTitleStr:@"123" content:@"456"]];
+    [items addObject:[ZQEmptyCellItem emptyCellItemWithBackgroundColor:[UIColor redColor]]];
+    [items addObject:[ZQEmptyCellItem emptyCellItemWithBackgroundColor:[UIColor redColor]]];
+    [items addObject:[ZQEmptyCellItem emptyCellItem]];
     
     self.tableViewAdaptor.items = items;
     [self.tableView reloadData];

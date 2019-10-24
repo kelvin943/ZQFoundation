@@ -45,8 +45,7 @@
 
 - (void)didInitialize {
     self.tableView = ({
-        UITableView * tableview         = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
-        tableview.backgroundColor      = self.view.backgroundColor;
+        UITableView * tableview         = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
         tableview.backgroundView       = nil;
         tableview;
     });

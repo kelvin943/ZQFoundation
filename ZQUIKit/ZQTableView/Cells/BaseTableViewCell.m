@@ -186,19 +186,19 @@ static const CGFloat DefaultCellHeight = 44.0f;
     [super layoutSubviews];
     CGFloat margin = 16;
     self.titleLabel.left = margin;
-    self.titleLabel.top  = 18;
+    self.titleLabel.top     = 18;
     self.titleLabel.width   = 100;
     self.titleLabel.height  = 20;
 
-    self.flagImageView.centerY = self.titleLabel.centerY;
-    self.flagImageView.right   = viewWidth - 16;
+    self.flagImageView.top     = 18;
+    self.flagImageView.left    = self.width - margin - 20;
     self.flagImageView.width   = 20;
     self.flagImageView.height  = 20;
 
-    self.subTitleLabel.centerY = self.flagImageView.centerY;
-    self.subTitleLabel.right   = self.flagImageView.left -8;
-    self.subTitleLabel.width = 100;
-    self.subTitleLabel.height = 20;
+    self.subTitleLabel.top     = 18;
+    self.subTitleLabel.left   = self.flagImageView.left -108;
+    self.subTitleLabel.width   = 100;
+    self.subTitleLabel.height  = 20;
 }
 
 - (void)setCellModel:(id<CellModelBasicProtocol>)object {

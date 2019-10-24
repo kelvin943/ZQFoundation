@@ -15,34 +15,6 @@ static NSString *hoverCell = @"HoverCell";
 static NSString *hoverHeadView = @"HoverHeadView";
 
 
-@interface HoverTableViewCell()
-@property (nonatomic,strong) ZQPageViewController *pageVC;
-@end
-@implementation HoverTableViewCell
-
-//手动初始化
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        self.selectionStyle = UITableViewCellSelectionStyleNone;
-        self.accessoryType = UITableViewCellAccessoryNone;
-//        [self setupContentView];
-    }
-    return self;
-}
-
-
-#pragma mark - lazy load
-- (ZQPageViewController*)pageVC {
-    if (!_pageVC) {
-        _pageVC = [[ZQPageViewController alloc] init];
-    }
-    return _pageVC;
-}
-
-
-@end
-
 @interface HoverTableViewController ()<UITableViewDelegate, UITableViewDataSource,ZQPageViewControllerDelegate>
 
 @property (nonatomic,strong) ZQPageViewController *pageVC;
@@ -54,6 +26,7 @@ static NSString *hoverHeadView = @"HoverHeadView";
 - (void)viewWillLayoutSubviews{
     [super viewWillLayoutSubviews];
     self.tableView.frame = self.view.bounds;
+    self.pageVC.view.frame = CGRectMake(0, 0, ZQScreenWidth, ZQScreenHeight - TableHeadViewHeight - TableSectionHeight);
     [self.pageVC.view layoutIfNeeded];
 }
 
@@ -82,7 +55,7 @@ static NSString *hoverHeadView = @"HoverHeadView";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.tableView  registerClass:[UITableViewCell class] forCellReuseIdentifier:hoverCell];
+//    [self.tableView  registerClass:[UITableViewCell class] forCellReuseIdentifier:hoverCell];
 //    [self.tableView registerClass:[UITableViewCell class]  forHeaderFooterViewReuseIdentifier:hoverHeadView];
     self.tableView.backgroundColor = [UIColor colorWithHex:0xF4F4F4];
     if (!self.tableView.superview) {
@@ -116,9 +89,13 @@ static NSString *hoverHeadView = @"HoverHeadView";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:hoverCell];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:hoverCell];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//        self.pageVC.view.frame = CGRectMake(0, 0, ZQScreenWidth, ZQScreenHeight - TableHeadViewHeight - TableSectionHeight);
+//        [self.pageVC.view layoutIfNeeded];
+        [cell.contentView addSubview:self.pageVC.view];
     }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    [cell.contentView addSubview:self.pageVC.view];
+    
+    
     [self.pageVC reloadPages];
     return cell;
 }
@@ -139,9 +116,9 @@ static NSString *hoverHeadView = @"HoverHeadView";
 - (ZQPageViewController*)pageVC {
     if (!_pageVC) {
         _pageVC = [[ZQPageViewController alloc] init];
-        if ([self pageDataSource].count >0) {
-            NSArray<UIViewController*>* arr  = [self pageDataSource];
-            for (UIViewController * vc in arr) {
+        NSArray * childArr =[self pageDataSource];
+        if (childArr.count >0) {
+            for (UIViewController * vc in childArr) {
                 [_pageVC addChildViewController:vc];
             }
         }

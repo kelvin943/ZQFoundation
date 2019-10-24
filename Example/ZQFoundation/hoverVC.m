@@ -7,6 +7,7 @@
 //
 
 #import "hoverVC.h"
+#import "tableVC.h"
 
 @interface hoverVC ()
 
@@ -33,25 +34,20 @@
 
 
 -(NSArray<UIViewController*>*)pageDataSource {
-    
     NSMutableArray * arr = @[].mutableCopy;
-
     {
-        UIViewController * tempVC = [[UIViewController alloc] init];
-        tempVC.view.backgroundColor = ZQRandomColor;
-        [arr addObject:tempVC];
+        tableVC * vc = [[ tableVC alloc] init];
+        [arr addObject:vc];
     }
     
     {
-        UIViewController * tempVC = [[UIViewController alloc] init];
-        tempVC.view.backgroundColor = ZQRandomColor;
-        [arr addObject:tempVC];
+       tableVC * vc = [[ tableVC alloc] init];
+        [arr addObject:vc];
     }
     
     {
-        UIViewController * tempVC = [[UIViewController alloc] init];
-        tempVC.view.backgroundColor = ZQRandomColor;
-        [arr addObject:tempVC];
+       tableVC * vc = [[ tableVC alloc] init];
+        [arr addObject:vc];
     }
     
     return arr.copy;
