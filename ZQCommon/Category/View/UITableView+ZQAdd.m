@@ -19,16 +19,16 @@ ZQCATEGORY_DUMMY_CLASS(UITableView_ZQEmptyData)
 @implementation UITableView (ZQEmptyData)
 
 + (void)load {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        Method originalMethod = class_getInstanceMethod(self, @selector(reloadData));
-        Method newMethod = class_getInstanceMethod(self, @selector(zq_tableview_reloadData));
-        method_exchangeImplementations(originalMethod, newMethod);
-        
-        Method originalMethod1 = class_getInstanceMethod(self, @selector(layoutSubviews));
-        Method newMethod1 = class_getInstanceMethod(self, @selector(zq_tableview_layoutSubviews));
-        method_exchangeImplementations(originalMethod1, newMethod1);
-    });
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        Method originalMethod = class_getInstanceMethod(self, @selector(reloadData));
+//        Method newMethod = class_getInstanceMethod(self, @selector(zq_tableview_reloadData));
+//        method_exchangeImplementations(originalMethod, newMethod);
+//
+//        Method originalMethod1 = class_getInstanceMethod(self, @selector(layoutSubviews));
+//        Method newMethod1 = class_getInstanceMethod(self, @selector(zq_tableview_layoutSubviews));
+//        method_exchangeImplementations(originalMethod1, newMethod1);
+//    });
 }
 
 - (void)zq_tableview_reloadData{
@@ -103,18 +103,19 @@ ZQCATEGORY_DUMMY_CLASS(UITableView_ZQEmptyData)
 @end
 
 
+
 @interface UICollectionView ()
 @property (nonatomic, strong) ZQExceptionView *placeholderView; //没数据时的展位图
 @end
 @implementation UICollectionView (ZQEmptyData)
 
 + (void)load {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        Method originalMethod = class_getInstanceMethod(self, @selector(reloadData));
-        Method newMethod = class_getInstanceMethod(self, @selector(zq_collectionView_reloadData));
-        method_exchangeImplementations(originalMethod, newMethod);
-    });
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        Method originalMethod = class_getInstanceMethod(self, @selector(reloadData));
+//        Method newMethod = class_getInstanceMethod(self, @selector(zq_collectionView_reloadData));
+//        method_exchangeImplementations(originalMethod, newMethod);
+//    });
 }
 
 - (void)zq_collectionView_reloadData{

@@ -30,6 +30,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// checked when view controller based navigation bar's appearance is enabled.
 /// Default to NO, bars are more likely to show.
 @property (nonatomic, assign) BOOL zq_prefersNavigationBarHidden;
+///
+///那些不被包含在容器中（UINavigationController）的VC 如果也需要添加自定CustomNavBar 可以更改此属性
+/// Default to NO 
+@property (nonatomic, assign) BOOL zq_needCustomNavBar;
 /// 左滑返回手势是否禁用
 /// Default to No
 @property (nonatomic, assign) BOOL zq_interactivePopDisabled;

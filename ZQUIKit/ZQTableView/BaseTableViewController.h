@@ -8,6 +8,8 @@
 #import "BaseViewController.h"
 #import "BaseTableViewAdaptor.h"
 
+typedef void(^TableViewDidScrollAction)(UIScrollView* scrollView);
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BaseTableViewController : BaseViewController<BaseTableViewAdaptorDelegate>
@@ -15,6 +17,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) IBOutlet UITableView * tableView;
 @property (nonatomic, strong) IBOutlet BaseTableViewAdaptor * tableViewAdaptor;
 
+
+//tableView是否可以滑动
+@property (nonatomic, assign) BOOL isCanScroll;
+@property (nonatomic,  copy) TableViewDidScrollAction scrollAction;
 @end
 
 @interface UITableView (registerExtern)

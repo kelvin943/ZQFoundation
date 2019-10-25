@@ -82,6 +82,16 @@
         
 }
 
+
+#pragma mark -  UIScrollViewDelegate
+//重写需要调用的父类的改方法
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView NS_REQUIRES_SUPER {
+    if (self.scrollAction) {
+        self.scrollAction(scrollView);
+    }
+}
+
+
 #pragma mark -  BaseTableViewAdaptorDelegate
 //按需由子类复写
 - (void)tableView:(UITableView *)tableView

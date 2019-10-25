@@ -96,7 +96,7 @@ static void __exchange_method(Class class, SEL originalSelector, SEL swizzlingSe
 }
 
 - (void)setZq_willAppearInjectBlockIgnored:(BOOL)ignore {
-    objc_setAssociatedObject(self, @selector(zq_willAppearInjectBlockIgnored), @(ignore), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, @selector(zq_willAppearInjectBlockIgnored), @(ignore), OBJC_ASSOCIATION_ASSIGN);
 }
 
 //是否隐藏导航栏
@@ -105,7 +105,16 @@ static void __exchange_method(Class class, SEL originalSelector, SEL swizzlingSe
 }
 
 - (void)setZq_prefersNavigationBarHidden:(BOOL)hidden {
-    objc_setAssociatedObject(self, @selector(zq_prefersNavigationBarHidden), @(hidden), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, @selector(zq_prefersNavigationBarHidden), @(hidden), OBJC_ASSOCIATION_ASSIGN);
+}
+
+//是否需要添加自定CustomNavBar
+- (BOOL)zq_needCustomNavBar {
+    return [objc_getAssociatedObject(self, _cmd) boolValue];
+}
+
+- (void)setZq_needCustomNavBar:(BOOL)isNeed {
+    objc_setAssociatedObject(self, @selector(zq_needCustomNavBar), @(isNeed), OBJC_ASSOCIATION_ASSIGN);
 }
 
 //是否禁用左滑返回手势
@@ -118,7 +127,7 @@ static void __exchange_method(Class class, SEL originalSelector, SEL swizzlingSe
 }
 
 - (void)setZq_interactivePopDisabled:(BOOL)disabled {
-    objc_setAssociatedObject(self, @selector(zq_interactivePopDisabled), @(disabled), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, @selector(zq_interactivePopDisabled), @(disabled), OBJC_ASSOCIATION_ASSIGN);
 }
 
 //左滑返回手势边缘范围
@@ -183,7 +192,7 @@ static void __exchange_method(Class class, SEL originalSelector, SEL swizzlingSe
 
 - (void)vc_viewDidLoad{
     //不隐藏导航栏的话添加一个headView
-    if (self.navigationController && !self.zq_prefersNavigationBarHidden) {
+    if ((self.navigationController || self.zq_needCustomNavBar )&& !self.zq_prefersNavigationBarHidden) {
         [self.view addSubview:self.zq_CustomNavBar];
         CGFloat screenWith   = [UIScreen mainScreen].bounds.size.width;
         CGFloat navBarHeight = [[UIApplication sharedApplication] statusBarFrame].size.height + 44;

@@ -95,6 +95,7 @@ static const CGFloat DefaultCellHeight = 44.0f;
     if ([object isKindOfClass:[ZQEmptyCellItem class]]) {
         ZQEmptyCellItem *item = (ZQEmptyCellItem *)object;
         self.contentView.backgroundColor = item.bgColor;
+        self.backgroundColor             = item.bgColor;
     }
 }
 @end
@@ -141,7 +142,8 @@ static const CGFloat DefaultCellHeight = 44.0f;
     if ([object isKindOfClass:[ZQDefaultCellItem class]]) {
         ZQDefaultCellItem *item = (ZQDefaultCellItem *)object;
         self.contentView.backgroundColor = item.bgColor;
-        self.textLabel.text = item.titleStr;
+        self.backgroundColor             = item.bgColor;
+        self.textLabel.text              = item.titleStr;
         self.detailTextLabel.text = item.contentStr;
         if (item.separatorInset.left >0 || item.separatorInset.right > 0) {
             //如果设置过分割线的间距就显示，默认由父视图设置的 UIEdgeInsetsMake(0,viewWidth,0,0) 不展示.git
@@ -206,6 +208,7 @@ static const CGFloat DefaultCellHeight = 44.0f;
     if ([object isKindOfClass:[ZQCustomDefaultCellItem class]]) {
         ZQCustomDefaultCellItem *item = (ZQCustomDefaultCellItem *)object;
         self.contentView.backgroundColor = item.bgColor;
+        self.backgroundColor             = item.bgColor;
         self.titleLabel.text             = item.titleStr;
         self.subTitleLabel.text          = item.subTitleStr;
         if (item.separatorInset.left >0 || item.separatorInset.right > 0) {

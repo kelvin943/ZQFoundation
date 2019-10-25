@@ -10,8 +10,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+
+@interface HoverTableView : UITableView
+
+@end
+
 @interface HoverTableViewController : BaseViewController
-@property (nonatomic, strong) IBOutlet UITableView * tableView;
+@property (nonatomic, assign) BOOL isCanScroll;
+@property (nonatomic, strong) IBOutlet HoverTableView * tableView;
 
 - (void)reloadPage;
 

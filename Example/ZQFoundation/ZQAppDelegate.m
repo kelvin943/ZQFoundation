@@ -7,6 +7,8 @@
 //
 
 #import "ZQAppDelegate.h"
+#import "ZQCommon.h"
+#import "ZQUIKit.h"
 
 
 @implementation ZQAppDelegate
@@ -15,6 +17,7 @@
 {
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    ZQCustomNavBar.appearance.barColor = ZQColorHex(0xC91A1E);
     return YES;
 }
 

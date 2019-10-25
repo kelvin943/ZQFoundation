@@ -39,6 +39,10 @@
 
 @implementation ZQPageViewController
 
+/*通过以下方法设置frame 会导致self.view 的frame 为 {(0,0),(508,996.3)}
+  故在初始化的时候给view 赋初值，能避免此问题，暂时还不知道是啥原因 （[cell.contentView addSubview:self.pageVC.view]？）
+  self.pageVC.view.frame = CGRectMake(0, 0, ZQScreenWidth, ZQScreenHeight - TableHeadViewHeight - TableSectionHeight);
+ */
 
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
