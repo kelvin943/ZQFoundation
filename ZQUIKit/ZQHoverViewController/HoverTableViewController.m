@@ -42,7 +42,7 @@ static NSString *hoverHeadView = @"HoverHeadView";
 
 - (void)viewWillLayoutSubviews{
     [super viewWillLayoutSubviews];
-    self.tableView.frame = self.view.bounds;
+//    self.tableView.frame = self.view.bounds;
     self.pageVC.view.frame = CGRectMake(0, 0, ZQScreenWidth, ZQScreenHeight - TableSectionHeight- ZQNavBarHeight);
 }
 
@@ -89,7 +89,7 @@ static NSString *hoverHeadView = @"HoverHeadView";
         self.tableView.tableHeaderView = headerView;
     }
     self.tableView.tableFooterView = [UIView new];
-    self.tableView.rowHeight = ZQScreenHeight  - TableSectionHeight;
+    self.tableView.rowHeight = ZQScreenHeight  - ZQNavBarHeight - TableSectionHeight;
 
 }
 

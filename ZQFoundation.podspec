@@ -40,8 +40,18 @@ Pod::Spec.new do |s|
   
   s.subspec 'ZQUIKit' do |ss|
       ss.source_files = 'ZQUIKit/*.h'
+      #common
+      ss.subspec 'Common' do |common|
+         common.source_files ='ZQUIKit/Common/**/*.{h,m}'
+         common.dependency 'ZQFoundation/ZQCommon/Category'
+      end
+      #CustomizeNavBar
+      ss.subspec 'ZQCustomizeBar' do |navbar|
+         navbar.source_files ='ZQUIKit/ZQCustomizeBar/**/*.{h,m}'
+      end
+      #BaseVC
       ss.subspec 'ZQBaseTabBarVC' do |baseTabBar|
-        baseTabBar.source_files = 'ZQUIKit/ZQBaseTabBarVC/**/*.{h,m}'
+         baseTabBar.source_files = 'ZQUIKit/ZQBaseTabBarVC/**/*.{h,m}'
       end
       ss.subspec 'ZQBaseModel' do |baseModel|
          baseModel.source_files = 'ZQUIKit/ZQBaseModel/**/*.{h,m}'
@@ -50,27 +60,27 @@ Pod::Spec.new do |s|
       ss.subspec 'ZQBaseViewModel' do |baseViewModel|
          baseViewModel.source_files = 'ZQUIKit/ZQBaseViewModel/**/*.{h,m}'
       end
-      ss.subspec 'ZQBaseVC' do |baseVC|
-         baseVC.source_files = 'ZQUIKit/ZQBaseVC/**/*.{h,m}'
+      ss.subspec 'ZQBaseViewController' do |baseVC|
+         baseVC.source_files = 'ZQUIKit/ZQBaseViewController/**/*.{h,m}'
+      end
+      ss.subspec 'ZQTableViewController' do |baseTableVC|
+         baseTableVC.source_files = 'ZQUIKit/ZQTableViewController/**/*.{h,m}'
+         #内部的依赖如果不懈，spec 远程检查会有语法错误
+         baseTableVC.dependency 'ZQFoundation/ZQUIKit/ZQBaseViewController'
+         baseTableVC.dependency 'ZQFoundation/ZQUIKit/ZQBaseModel'
+         baseTableVC.dependency 'ZQFoundation/ZQCommon/Category'
+         baseTableVC.dependency 'MJRefresh',  '3.2.0'
+      end
+      #PageViewController
+      ss.subspec 'ZQPageViewController' do |pageVC|
+         pageVC.source_files ='ZQUIKit/ZQPageViewController/**/*.{h,m}'
+         pageVC.dependency 'ZQFoundation/ZQUIKit/ZQBaseViewController'
       end
       
-      ss.subspec 'ZQTableView' do |baseTableview|
-         baseTableview.source_files = 'ZQUIKit/ZQTableView/**/*.{h,m}'
-         #内部的依赖如果不懈，spec 远程检查会有语法错误
-         baseTableview.dependency 'ZQFoundation/ZQUIKit/ZQBaseVC'
-         baseTableview.dependency 'ZQFoundation/ZQUIKit/ZQBaseModel'
-         baseTableview.dependency 'ZQFoundation/ZQCommon/Category'
-         baseTableview.dependency 'MJRefresh',  '3.2.0'
-      end
-      ss.subspec 'Common' do |common|
-        common.source_files ='ZQUIKit/Common/**/*.{h,m}'
-        common.dependency 'ZQFoundation/ZQCommon/Category'
-      end
-      ss.subspec 'ZQCustomizeBar' do |navbar|
-        navbar.source_files ='ZQUIKit/ZQCustomizeBar/**/*.{h,m}'
-      end
-      ss.subspec 'ZQPageViewController' do |pagevc|
-        pagevc.source_files ='ZQUIKit/ZQPageViewController/**/*.{h,m}'
+      #PageViewController
+      ss.subspec 'ZQHoverViewController' do |hoverVC|
+         hoverVC.source_files ='ZQUIKit/ZQHoverViewController/**/*.{h,m}'
+         hoverVC.dependency 'ZQFoundation/ZQUIKit/ZQBaseViewController'
       end
       
   end

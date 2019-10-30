@@ -32,6 +32,8 @@
 
     //打印尺寸
     #define LogRect(rect)   ZQLog(@"%@", NSStringFromCGRect(rect));
+    #define ZQLogRect(rect,...)   NSLog(@"%@:%@", [NSString stringWithFormat:__VA_ARGS__],NSStringFromCGRect(rect));
+    #define ZQLogSize(size,...)   NSLog(@"%@:%@", [NSString stringWithFormat:__VA_ARGS__],NSStringFromCGSize(size));
     #define LogSize(size)   ZQLog(@"%@", NSStringFromCGSize(size));
     #define LogPoint(point) ZQLog(@"%@", NSStringFromCGPoint(point)); 
 
@@ -214,6 +216,7 @@
     #define IOS10_OrLater   [[[UIDevice currentDevice] systemVersion] doubleValue] >= 10.0
     #define IOS11_OrLater   [[[UIDevice currentDevice] systemVersion] doubleValue] >= 11.0
     #define IOS12_OrLater   [[[UIDevice currentDevice] systemVersion] doubleValue] >= 12.0
+    #define IOS13_OrLater   [[[UIDevice currentDevice] systemVersion] doubleValue] >= 13.0
     #define IOS_8           ([[[UIDevice currentDevice] systemVersion] doubleValue]>=8.0 \
                             && [[[UIDevice currentDevice] systemVersion] doubleValue]<9.0)
     #define IOS_9           ([[[UIDevice currentDevice] systemVersion] doubleValue]>=9.0 \
@@ -222,6 +225,8 @@
                             && [[[UIDevice currentDevice] systemVersion] doubleValue]<11.0)
     #define IOS_11          ([[[UIDevice currentDevice] systemVersion] doubleValue]>=11.0 \
                             && [[[UIDevice currentDevice] systemVersion] doubleValue]<12.0)
+    #define IOS_12          ([[[UIDevice currentDevice] systemVersion] doubleValue]>=12.0 \
+                            && [[[UIDevice currentDevice] systemVersion] doubleValue]<13.0)
 
 
 

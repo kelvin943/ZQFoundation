@@ -43,16 +43,16 @@
   故在初始化的时候给view 赋初值，能避免此问题，暂时还不知道是啥原因 （[cell.contentView addSubview:self.pageVC.view]？）
   self.pageVC.view.frame = CGRectMake(0, 0, ZQScreenWidth, ZQScreenHeight - TableHeadViewHeight - TableSectionHeight);
  */
-
-- (void)viewWillLayoutSubviews {
-    [super viewWillLayoutSubviews];
-    CGFloat top = self.pageContetnInset.top;
-    CGFloat bottom = self.pageContetnInset.bottom;
-    CGFloat left = self.pageContetnInset.left;
-    CGFloat right = self.pageContetnInset.right;
-    self.collectionViewFlowLayout.itemSize = CGSizeMake(self.view.bounds.size.width - left - right, self.view.bounds.size.height - top - bottom);
-    self.collectionView.frame = CGRectMake(left, top, self.view.bounds.size.width - left - right, self.view.bounds.size.height - top - bottom);
-}
+//
+//- (void)viewWillLayoutSubviews {
+//    [super viewWillLayoutSubviews];
+//    CGFloat top = self.pageContetnInset.top;
+//    CGFloat bottom = self.pageContetnInset.bottom;
+//    CGFloat left = self.pageContetnInset.left;
+//    CGFloat right = self.pageContetnInset.right;
+//    self.collectionViewFlowLayout.itemSize = CGSizeMake(self.view.bounds.size.width - left - right, self.view.bounds.size.height - top - bottom);
+//    self.collectionView.frame = CGRectMake(left, top, self.view.bounds.size.width - left - right, self.view.bounds.size.height - top - bottom);
+//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

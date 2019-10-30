@@ -25,7 +25,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     [self.tableView registerClassesWithReuseIds:@[@"ZQDefaultCell",@"ZQEmptyCell",@"ZQCustomDefaultCell"]];
     self.tableViewAdaptor.pullRefreshEnable = YES;
-    self.tableViewAdaptor.loadMoreEnable = YES;
+//    self.tableViewAdaptor.loadMoreEnable = YES;
     
     self.tableView.tableFooterView = [[UIView alloc] init];
     

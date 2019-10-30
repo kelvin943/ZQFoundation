@@ -61,7 +61,10 @@
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
     //tableview head 的高度
     CGFloat scrollY = [self.tableView rectForSection:0].origin.y;
-//    NSLog(@"scrollY:%f",scrollY);
+    NSLog(@"mainTable contentOffsetY:%f",scrollView.contentOffset.y);
+    ZQLogSize(scrollView.contentSize,@"scrollView.contentSize");
+//    NSLog(@"mainTable contentsize:%f",[NSString ]scrollView.contentSize);
+    
     if (scrollView.contentOffset.y >= scrollY) {
         if (self.isCanScroll) {
             self.isCanScroll = NO;
