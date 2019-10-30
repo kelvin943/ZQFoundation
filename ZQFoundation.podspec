@@ -77,7 +77,7 @@ Pod::Spec.new do |s|
          pageVC.dependency 'ZQFoundation/ZQUIKit/ZQBaseViewController'
       end
       
-      #PageViewController
+      #ZQHoverViewController
       ss.subspec 'ZQHoverViewController' do |hoverVC|
          hoverVC.source_files ='ZQUIKit/ZQHoverViewController/**/*.{h,m}'
          hoverVC.dependency 'ZQFoundation/ZQUIKit/ZQBaseViewController'
