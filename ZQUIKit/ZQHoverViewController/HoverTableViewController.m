@@ -8,6 +8,7 @@
 #import "HoverTableViewController.h"
 #import "ZQPageViewController.h"
 #import "ZQMacros.h"
+#import "UIColor+ZQAdd.h"
 #define TableHeadViewHeight  200
 #define TableSectionHeight  50
 

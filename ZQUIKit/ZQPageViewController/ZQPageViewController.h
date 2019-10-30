@@ -28,7 +28,7 @@
  [self.pageVC reladPages];
  */
 
-#import <ZQFoundation/ZQFoundation.h>
+#import "BaseViewController.h"
 
 @class ZQPageViewController;
 @protocol ZQPageViewControllerDelegate <NSObject>
