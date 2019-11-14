@@ -29,7 +29,7 @@
     if (self.zq_prefersNavigationBarHidden) {
          self.tableView.frame = self.view.bounds;
     }else {
-        [self.view bringSubviewToFront:self.zq_CustomNavBar]
+        [self.view bringSubviewToFront:self.zq_CustomNavBar];
         self.tableView.frame = CGRectMake(0, ZQNavBarHeight, ZQScreenWidth, self.view.bounds.size.height - ZQNavBarHeight);
     }
 }
