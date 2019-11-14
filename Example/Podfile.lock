@@ -28,7 +28,9 @@ PODS:
   - ZQFoundation/ZQUIKit/ZQBaseViewModel (0.1.1)
   - ZQFoundation/ZQUIKit/ZQCustomizeBar (0.1.1)
   - ZQFoundation/ZQUIKit/ZQHoverViewController (0.1.1):
+    - ZQFoundation/ZQCommon/Category
     - ZQFoundation/ZQUIKit/ZQBaseViewController
+    - ZQFoundation/ZQUIKit/ZQPageViewController
   - ZQFoundation/ZQUIKit/ZQPageViewController (0.1.1):
     - ZQFoundation/ZQUIKit/ZQBaseViewController
   - ZQFoundation/ZQUIKit/ZQTableViewController (0.1.1):
@@ -52,7 +54,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
-  ZQFoundation: e28f0d3af5570bb8f426963be114584f1df3918c
+  ZQFoundation: ff060bd3a7b205f167342a9343e1bc71116e67ab
 
 PODFILE CHECKSUM: 2e23407cb5d0a0c03ed1d9dc41f60a3bbbd3587e
 

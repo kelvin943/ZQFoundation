@@ -102,6 +102,10 @@
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
     //tabBarItems图片的抖动动画
     NSInteger index = [tabBar.items indexOfObject:item];
+    //若未设置图片则取消动画
+    if (tabBar.imageViewArray.count <= index) {
+        return;
+    }
     CAKeyframeAnimation *animation = [CAKeyframeAnimation animation];
     animation.keyPath = @"transform.scale";
     animation.values = @[@1.0,@1.6,@0.9,@1.4,@0.95,@1.2,@1.0];

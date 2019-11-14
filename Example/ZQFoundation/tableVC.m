@@ -37,46 +37,83 @@ didSelectObject:(id<CellModelBasicProtocol>)object
 
 - (void)construstData {
     NSMutableArray * items = @[].mutableCopy;
+    {
+       ZQCustomDefaultCellItem * item = [ZQCustomDefaultCellItem cellWithTitleStr:@"adsfas" subTitle:@"1231"];
+       item.cellHeight = @(100);
+       [items addObject:item];
+    }
+    {
+       ZQCustomDefaultCellItem * item = [ZQCustomDefaultCellItem cellWithTitleStr:@"adsfas" subTitle:@"1231"];
+       item.cellHeight = @(100);
+        item.bgColor = [UIColor randomColor];
+       [items addObject:item];
+    }
+    {
+       ZQCustomDefaultCellItem * item = [ZQCustomDefaultCellItem cellWithTitleStr:@"adsfas" subTitle:@"1231"];
+       item.cellHeight = @(100);
+        item.bgColor = [UIColor randomColor];
+       [items addObject:item];
+    }
+    {
+       ZQCustomDefaultCellItem * item = [ZQCustomDefaultCellItem cellWithTitleStr:@"adsfas" subTitle:@"1231"];
+       item.cellHeight = @(100);
+        item.bgColor = [UIColor randomColor];
+       [items addObject:item];
+    }
+    {
+       ZQCustomDefaultCellItem * item = [ZQCustomDefaultCellItem cellWithTitleStr:@"adsfas" subTitle:@"1231"];
+       item.cellHeight = @(100);
+        item.bgColor = [UIColor randomColor];
+       [items addObject:item];
+    }
+    {
+       ZQCustomDefaultCellItem * item = [ZQCustomDefaultCellItem cellWithTitleStr:@"adsfas" subTitle:@"1231"];
+       item.cellHeight = @(100);
+        item.bgColor = [UIColor randomColor];
+       [items addObject:item];
+    }
+    {
+       ZQCustomDefaultCellItem * item = [ZQCustomDefaultCellItem cellWithTitleStr:@"adsfas" subTitle:@"1231"];
+       item.cellHeight = @(100);
+        item.bgColor = [UIColor randomColor];
+       [items addObject:item];
+    }
+    {
+       ZQCustomDefaultCellItem * item = [ZQCustomDefaultCellItem cellWithTitleStr:@"adsfas" subTitle:@"1231"];
+       item.cellHeight = @(100);
+        item.bgColor = [UIColor randomColor];
+       [items addObject:item];
+    }
+    {
+       ZQCustomDefaultCellItem * item = [ZQCustomDefaultCellItem cellWithTitleStr:@"adsfas" subTitle:@"1231"];
+       item.cellHeight = @(100);
+        item.bgColor = [UIColor randomColor];
+       [items addObject:item];
+    }
+    {
+       ZQCustomDefaultCellItem * item = [ZQCustomDefaultCellItem cellWithTitleStr:@"adsfas" subTitle:@"1231"];
+       item.cellHeight = @(100);
+        item.bgColor = [UIColor randomColor];
+       [items addObject:item];
+    }
+    {
+       ZQCustomDefaultCellItem * item = [ZQCustomDefaultCellItem cellWithTitleStr:@"adsfas" subTitle:@"1231"];
+       item.cellHeight = @(100);
+        item.bgColor = [UIColor randomColor];
+       [items addObject:item];
+    }
+    {
+       ZQCustomDefaultCellItem * item = [ZQCustomDefaultCellItem cellWithTitleStr:@"adsfas" subTitle:@"1231"];
+       item.cellHeight = @(100);
+        item.bgColor = [UIColor randomColor];
+       [items addObject:item];
+    }
+    {
+       ZQCustomDefaultCellItem * item = [ZQCustomDefaultCellItem cellWithTitleStr:@"adsfas" subTitle:@"1231"];
+       item.cellHeight = @(100);
+       [items addObject:item];
+    }
     
-     [items addObject:[ZQDefaultCellItem cellWithTitleStr:@"123" content:@"456"]];
-     [items addObject:[ZQDefaultCellItem cellWithTitleStr:@"123" content:@"456"]];
-     [items addObject:[ZQDefaultCellItem cellWithTitleStr:@"123" content:@"456"]];
-    {
-       ZQCustomDefaultCellItem * item = [ZQCustomDefaultCellItem cellWithTitleStr:@"wifi_on" subTitle:@"andsinf"];
-        item.cellHeight = @(200);
-       [items addObject:item];
-       [items addObject:[ZQEmptyCellItem emptyCellItemWithBackgroundColor:[UIColor randomColor]]];
-    }
-    {
-       ZQCustomDefaultCellItem * item = [ZQCustomDefaultCellItem cellWithTitleStr:@"adsfas" subTitle:@"1231"];
-       item.cellHeight = @(200);
-       [items addObject:[ZQEmptyCellItem emptyCellItemWithBackgroundColor:[UIColor randomColor]]];
-       [items addObject:item];
-    }
-    {
-       ZQCustomDefaultCellItem * item = [ZQCustomDefaultCellItem cellWithTitleStr:@"adsfas" subTitle:@"1231"];
-       item.cellHeight = @(200);
-       [items addObject:[ZQEmptyCellItem emptyCellItemWithBackgroundColor:[UIColor randomColor]]];
-       [items addObject:item];
-    }
-    {
-       ZQCustomDefaultCellItem * item = [ZQCustomDefaultCellItem cellWithTitleStr:@"adsfas" subTitle:@"1231"];
-       item.cellHeight = @(200);
-       [items addObject:[ZQEmptyCellItem emptyCellItemWithBackgroundColor:[UIColor randomColor]]];
-       [items addObject:item];
-    }
-    {
-       ZQCustomDefaultCellItem * item = [ZQCustomDefaultCellItem cellWithTitleStr:@"adsfas" subTitle:@"1231"];
-       item.cellHeight = @(200);
-       [items addObject:[ZQEmptyCellItem emptyCellItemWithBackgroundColor:[UIColor randomColor]]];
-       [items addObject:item];
-    }
-    {
-       ZQCustomDefaultCellItem * item = [ZQCustomDefaultCellItem cellWithTitleStr:@"adsfas" subTitle:@"1231"];
-       item.cellHeight = @(200);
-       [items addObject:[ZQEmptyCellItem emptyCellItemWithBackgroundColor:[UIColor randomColor]]];
-       [items addObject:item];
-    }
     self.tableViewAdaptor.items = items;
     [self.tableView reloadData];
     

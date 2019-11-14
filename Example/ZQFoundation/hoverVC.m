@@ -61,10 +61,7 @@
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
     //tableview head 的高度
     CGFloat scrollY = [self.tableView rectForSection:0].origin.y;
-    NSLog(@"mainTable contentOffsetY:%f",scrollView.contentOffset.y);
-    ZQLogSize(scrollView.contentSize,@"scrollView.contentSize");
-//    NSLog(@"mainTable contentsize:%f",[NSString ]scrollView.contentSize);
-    
+    NSLog(@"mainTable contentOffsetY:%f contentInsetY:%f ",scrollView.contentOffset.y,scrollView.contentInset.top);
     if (scrollView.contentOffset.y >= scrollY) {
         if (self.isCanScroll) {
             self.isCanScroll = NO;
@@ -76,14 +73,15 @@
             self.vc3.isCanScroll = YES;
             self.vc3.tableView.contentOffset = CGPointZero;
         }
-        self.tableView.contentOffset = CGPointMake(0, scrollY);
+        self.tableView.contentOffset = CGPointMake(0, scrollY );
     }else {
         if (!self.isCanScroll) {
             self.tableView.contentOffset = CGPointMake(0, scrollY);
         }
     }
-    self.tableView.showsVerticalScrollIndicator = self.isCanScroll?YES:NO;
+//    self.tableView.showsVerticalScrollIndicator = self.isCanScroll?YES:NO;
 }
+
 
 
 -(tableVC*)vc1 {

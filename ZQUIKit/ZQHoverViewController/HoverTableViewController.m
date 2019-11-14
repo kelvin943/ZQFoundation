@@ -79,6 +79,9 @@ static NSString *hoverHeadView = @"HoverHeadView";
     //设置代理
     self.tableView.dataSource = self;
     self.tableView.delegate   = self;
+    if (@available(iOS 11.0, *)) {
+        self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
     self.isCanScroll = YES;
     
     /*如果设置过HeadView（如从 xib 或者 sb 初始化）父类就不处理
@@ -90,7 +93,7 @@ static NSString *hoverHeadView = @"HoverHeadView";
         self.tableView.tableHeaderView = headerView;
     }
     self.tableView.tableFooterView = [UIView new];
-    self.tableView.rowHeight = ZQScreenHeight  - ZQNavBarHeight - TableSectionHeight;
+    self.tableView.rowHeight = ZQScreenHeight  - ZQNavBarHeight;
 
 }
 
@@ -146,6 +149,9 @@ static NSString *hoverHeadView = @"HoverHeadView";
 - (HoverTableView *)tableView {
     if (!_tableView) {
         _tableView                 = [[HoverTableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+        if (@available(iOS 11.0, *)) {
+            _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        }
         _tableView.backgroundColor = self.view.backgroundColor;
     }
     return _tableView;
