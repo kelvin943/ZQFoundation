@@ -9,8 +9,8 @@ install! 'cocoapods',
 use_frameworks!
 
 target 'ZQFoundation_Example' do
-#    pod 'ZQFoundation', :git => 'git@github.com:kelvin943/ZQFoundation.git', :branch => 'develop'
-    pod 'ZQFoundation', :path => '../'
+    pod 'ZQFoundation', :git => 'git@github.com:kelvin943/ZQFoundation.git', :branch => 'develop'
+#    pod 'ZQFoundation', :path => '../'
   target 'ZQFoundation_Tests' do
     inherit! :search_paths
   end
